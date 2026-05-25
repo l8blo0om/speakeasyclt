@@ -263,6 +263,36 @@
     @media (max-width: 480px) {
       .game-grid { grid-template-columns: 1fr; }
     }
+  
+    /* ── MUSIC SPLASH + WIDGET ── */
+    .music-splash {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(11,11,11,0.97);
+      display: none; opacity: 0;
+      align-items: center; justify-content: center;
+      transition: opacity 0.5s ease; backdrop-filter: blur(6px);
+      font-family: 'Oswald', sans-serif;
+    }
+    .music-splash-inner { max-width: 540px; padding: 2.5rem 2rem; text-align: center; animation: splashIn 0.6s ease; }
+    @keyframes splashIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .music-splash img { width: 110px; height: 110px; border: 3px solid var(--gold); border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; }
+    .music-splash .eyebrow { font-size: 0.72rem; color: var(--gold); letter-spacing: 5px; margin-bottom: 0.85rem; font-weight: 700; }
+    .music-splash .ms-title { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 700; color: #FAF4E1; letter-spacing: 3px; line-height: 1.05; margin-bottom: 0.5rem; text-transform: uppercase; }
+    .music-splash .ms-title .accent { color: var(--gold); }
+    .music-splash .ms-sub { font-family: 'Special Elite', cursive; font-size: 1rem; color: rgba(250,244,225,0.7); letter-spacing: 2px; margin-bottom: 2rem; text-transform: uppercase; }
+    .music-splash .btn-play { background: var(--gold); color: #1A1A1A; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: 3px; text-transform: uppercase; padding: 1rem 2.4rem; border: 3px solid var(--gold); cursor: pointer; transition: all 0.2s; display: inline-block; }
+    .music-splash .btn-play:hover { background: #FAF4E1; border-color: #FAF4E1; transform: translateY(-2px); }
+    .music-splash .skip { display: block; margin: 1.5rem auto 0; font-size: 0.78rem; color: rgba(250,244,225,0.5); letter-spacing: 2px; text-transform: uppercase; cursor: pointer; background: none; border: none; font-family: 'Oswald', sans-serif; }
+    .music-splash .skip:hover { color: var(--gold); }
+
+    .music-widget { position: fixed; bottom: 20px; right: 20px; z-index: 150; display: none; opacity: 0; flex-direction: column; background: #1A1A1A; border: 2px solid var(--gold); box-shadow: 0 8px 28px rgba(0,0,0,0.6); width: 340px; max-width: calc(100vw - 40px); transition: opacity 0.4s ease; font-family: 'Oswald', sans-serif; }
+    .music-widget-bar { display: flex; align-items: center; justify-content: space-between; padding: 0.55rem 0.85rem; background: #222; border-bottom: 1px solid var(--gold); }
+    .music-widget-bar .label { font-size: 0.7rem; color: var(--gold); letter-spacing: 2.5px; font-weight: 700; text-transform: uppercase; }
+    .music-widget-bar .close { background: none; border: none; color: rgba(250,244,225,0.6); cursor: pointer; font-size: 0.9rem; padding: 0 0.4rem; font-family: inherit; }
+    .music-widget-bar .close:hover { color: var(--gold); }
+    .music-widget iframe { width: 100%; height: 175px; border: 0; display: block; background: #1A1A1A; }
+    @media (max-width: 600px) { .music-widget { bottom: 12px; right: 12px; width: calc(100vw - 24px); } }
+
   </style>
 </head>
 <body>
@@ -1492,5 +1522,42 @@ function setLanguage(lang) {
 // Default to Spanish on load
 setLanguage('es');
 </script>
+
+<!-- MUSIC SPLASH + WIDGET (Touché Pussycat Vol 1) -->
+<div class="music-splash" id="musicSplash">
+  <div class="music-splash-inner">
+    <img src="logo.png" onerror="this.onerror=null;this.src='logo.jpg'" alt="Speak Easy"/>
+    <div class="eyebrow">UN ÁLBUM DE LA DRA. NICOLE BISHOP</div>
+    <div class="ms-title">Touché Pussycat<br/><span class="accent">Vol 1.</span></div>
+    <div class="ms-sub">Presiona play para entrar</div>
+    <button class="btn-play" onclick="seMusic.play()">▶ Escuchar Música</button>
+    <button class="skip" onclick="seMusic.skip()">Continuar sin sonido →</button>
+  </div>
+</div>
+<div class="music-widget" id="musicWidget">
+  <div class="music-widget-bar">
+    <span class="label">♪ TOUCHE PUSSYCAT · VOL 1</span>
+    <button class="close" onclick="seMusic.close()">✕</button>
+  </div>
+  <iframe src="https://embed.music.apple.com/us/album/touch%C3%A9-pussycat-vol-1/1889648702" allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" loading="lazy" title="Touché Pussycat Vol 1 on Apple Music"></iframe>
+</div>
+<script>
+(function(){
+  var splash=document.getElementById('musicSplash');
+  var widget=document.getElementById('musicWidget');
+  function show(el){el.style.display='flex';requestAnimationFrame(function(){el.style.opacity='1';});}
+  function hide(el,cb){el.style.opacity='0';setTimeout(function(){el.style.display='none';if(cb)cb();},450);}
+  window.seMusic={
+    play:function(){hide(splash,function(){show(widget);});sessionStorage.setItem('seMusicChoice','play');},
+    skip:function(){hide(splash);sessionStorage.setItem('seMusicChoice','skip');},
+    close:function(){hide(widget);sessionStorage.setItem('seMusicChoice','skip');}
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    var c=sessionStorage.getItem('seMusicChoice');
+    if(c==='play'){show(widget);} else if(c==='skip'){} else {show(splash);}
+  });
+})();
+</script>
+
 </body>
 </html>
