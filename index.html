@@ -265,44 +265,38 @@
     }
 
   
-    /* ── WELCOME SPLASH + MUSIC WIDGET ── */
-    .music-splash {
+    /* ── WELCOME SPLASH (no music push) ── */
+    .welcome-splash {
       position: fixed; inset: 0; z-index: 9999;
-      background: rgba(11,11,11,0.82);
+      background: rgba(11,11,11,0.85);
       display: none; opacity: 0;
       align-items: center; justify-content: center;
       transition: opacity 0.35s ease;
       backdrop-filter: blur(6px);
       padding: 1rem;
     }
-    .music-splash-card {
+    .welcome-card {
       background: #1A1A1A;
       border: 2px solid var(--gold);
-      padding: 2.1rem 1.85rem 1.7rem;
+      padding: 2.4rem 2rem 1.9rem;
       max-width: 400px; width: 100%;
       text-align: center;
       box-shadow: 0 20px 50px rgba(0,0,0,0.55);
-      animation: msCardIn 0.35s ease;
+      animation: wIn 0.35s ease;
     }
-    @keyframes msCardIn { from { transform: scale(0.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-    .music-splash-card img { width: 84px; height: 84px; border-radius: 6px; margin-bottom: 1.1rem; object-fit: cover; }
-    .music-splash-card .welcome { font-family: 'Oswald',sans-serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 0.45rem; font-weight: 700; }
-    .music-splash-card .site-name { font-family: 'Oswald',sans-serif; font-size: 1.5rem; color: #FAF4E1; letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.15; margin-bottom: 1.1rem; font-weight: 700; }
-    .music-splash-card .question { font-family: 'Special Elite',cursive; font-size: 0.82rem; color: rgba(250,244,225,0.72); letter-spacing: 1.5px; margin-bottom: 1.35rem; text-transform: uppercase; }
-    .music-splash-card .btns { display: flex; gap: 0.55rem; }
-    .music-splash-card .ms-btn { flex: 1; font-family: 'Oswald',sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; padding: 0.7rem 0.8rem; cursor: pointer; transition: all 0.15s; border-radius: 3px; }
-    .music-splash-card .ms-btn-yes { background: var(--gold); color: #1A1A1A; border: 2px solid var(--gold); }
-    .music-splash-card .ms-btn-yes:hover { background: #FAF4E1; border-color: #FAF4E1; }
-    .music-splash-card .ms-btn-no { background: transparent; color: rgba(250,244,225,0.7); border: 2px solid rgba(250,244,225,0.25); }
-    .music-splash-card .ms-btn-no:hover { border-color: var(--gold); color: var(--gold); }
-
-    .music-widget { position: fixed; bottom: 20px; right: 20px; z-index: 150; display: none; opacity: 0; flex-direction: column; background: #1A1A1A; border: 2px solid var(--gold); box-shadow: 0 8px 28px rgba(0,0,0,0.6); width: 320px; max-width: calc(100vw - 40px); transition: opacity 0.4s ease; font-family: 'Oswald',sans-serif; }
-    .music-widget-bar { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.8rem; background: #222; border-bottom: 1px solid var(--gold); }
-    .music-widget-bar .label { font-size: 0.66rem; color: var(--gold); letter-spacing: 2.5px; font-weight: 700; text-transform: uppercase; }
-    .music-widget-bar .close { background: none; border: none; color: rgba(250,244,225,0.55); cursor: pointer; font-size: 0.85rem; padding: 0 0.3rem; font-family: inherit; }
-    .music-widget-bar .close:hover { color: var(--gold); }
-    .music-widget iframe { width: 100%; height: 175px; border: 0; display: block; background: #1A1A1A; }
-    @media (max-width: 600px) { .music-widget { bottom: 12px; right: 12px; width: calc(100vw - 24px); } }
+    @keyframes wIn { from { transform: scale(0.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .welcome-card img { width: 96px; height: 96px; border-radius: 6px; margin-bottom: 1.2rem; object-fit: cover; }
+    .welcome-card .pre { font-family: 'Oswald',sans-serif; font-size: 0.72rem; color: var(--gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 0.55rem; font-weight: 700; }
+    .welcome-card .site-name { font-family: 'Oswald',sans-serif; font-size: 1.55rem; color: #FAF4E1; letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.15; margin-bottom: 1.5rem; font-weight: 700; }
+    .welcome-card .enter-btn {
+      background: var(--gold); color: #1A1A1A;
+      font-family: 'Oswald',sans-serif; font-weight: 700;
+      font-size: 0.95rem; letter-spacing: 4px; text-transform: uppercase;
+      padding: 0.8rem 2.4rem; border: 2px solid var(--gold);
+      cursor: pointer; transition: all 0.15s; border-radius: 3px;
+      width: 100%;
+    }
+    .welcome-card .enter-btn:hover { background: #FAF4E1; border-color: #FAF4E1; }
 
   </style>
 </head>
@@ -722,6 +716,8 @@
   <p>Charlotte, NC &nbsp;·&nbsp; <a href="tel:8038816626">803.881.6626</a> &nbsp;·&nbsp; <a href="mailto:speak.easy.columbia@gmail.com">speak.easy.columbia@gmail.com</a></p>
   <p style="margin-top:0.4rem;font-size:0.75rem;" data-i18n="footer_also">Also in Columbia, SC — <a href="index.html">speakeasycolumbia.com</a></p>
   <p style="margin-top:0.5rem;font-size:0.75rem;" data-i18n="footer_copy">© 2026 Speak Easy. All rights reserved.</p>
+  <div style="margin-top:0.8rem;font-size:0.78rem;"><a href="https://music.apple.com/us/album/touch%C3%A9-pussycat-vol-1/1889648702" target="_blank" rel="noopener" class="music-footer-link" style="color:rgba(255,255,255,0.4);text-decoration:none;letter-spacing:2px;">♪ Escuchar</a></div>
+
 </footer>
 
 <div class="board-strip"></div>
@@ -1528,40 +1524,23 @@ function setLanguage(lang) {
 setLanguage('es');
 </script>
 
-<!-- WELCOME SPLASH + MUSIC WIDGET -->
-<div class="music-splash" id="musicSplash">
-  <div class="music-splash-card">
+<!-- WELCOME SPLASH -->
+<div class="welcome-splash" id="welcomeSplash">
+  <div class="welcome-card">
     <img src="logo.jpg" alt="Speak Easy Charlotte"/>
-    <div class="welcome">Bienvenido a</div>
+    <div class="pre">Bienvenido a</div>
     <div class="site-name">Speak Easy Charlotte</div>
-    <div class="question">¿Continuar con música?</div>
-    <div class="btns">
-      <button class="ms-btn ms-btn-yes" onclick="seMusic.play()">Tocar música</button>
-      <button class="ms-btn ms-btn-no" onclick="seMusic.skip()">Sin música</button>
-    </div>
+    <button class="enter-btn" onclick="seEnter()">Entrar</button>
   </div>
-</div>
-<div class="music-widget" id="musicWidget">
-  <div class="music-widget-bar">
-    <span class="label">♪ TOUCHE PUSSYCAT · VOL 1</span>
-    <button class="close" onclick="seMusic.close()">✕</button>
-  </div>
-  <iframe src="https://embed.music.apple.com/us/album/touch%C3%A9-pussycat-vol-1/1889648702" allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" loading="lazy" title="Touché Pussycat Vol 1 on Apple Music"></iframe>
 </div>
 <script>
 (function(){
-  var splash=document.getElementById('musicSplash');
-  var widget=document.getElementById('musicWidget');
+  var splash=document.getElementById('welcomeSplash');
   function show(el){el.style.display='flex';requestAnimationFrame(function(){el.style.opacity='1';});}
-  function hide(el,cb){el.style.opacity='0';setTimeout(function(){el.style.display='none';if(cb)cb();},400);}
-  window.seMusic={
-    play:function(){hide(splash,function(){show(widget);});sessionStorage.setItem('seMusicChoice','play');},
-    skip:function(){hide(splash);sessionStorage.setItem('seMusicChoice','skip');},
-    close:function(){hide(widget);sessionStorage.setItem('seMusicChoice','skip');}
-  };
+  function hide(el){el.style.opacity='0';setTimeout(function(){el.style.display='none';},400);}
+  window.seEnter=function(){hide(splash);sessionStorage.setItem('seWelcomed','1');};
   document.addEventListener('DOMContentLoaded',function(){
-    var c=sessionStorage.getItem('seMusicChoice');
-    if(c==='play'){show(widget);} else if(c==='skip'){} else {show(splash);}
+    if(!sessionStorage.getItem('seWelcomed')){show(splash);}
   });
 })();
 </script>
