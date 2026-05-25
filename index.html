@@ -263,32 +263,43 @@
     @media (max-width: 480px) {
       .game-grid { grid-template-columns: 1fr; }
     }
+
   
-    /* ── MUSIC SPLASH + WIDGET ── */
+    /* ── WELCOME SPLASH + MUSIC WIDGET ── */
     .music-splash {
       position: fixed; inset: 0; z-index: 9999;
-      background: rgba(11,11,11,0.97);
+      background: rgba(11,11,11,0.82);
       display: none; opacity: 0;
       align-items: center; justify-content: center;
-      transition: opacity 0.5s ease; backdrop-filter: blur(6px);
-      font-family: 'Oswald', sans-serif;
+      transition: opacity 0.35s ease;
+      backdrop-filter: blur(6px);
+      padding: 1rem;
     }
-    .music-splash-inner { max-width: 540px; padding: 2.5rem 2rem; text-align: center; animation: splashIn 0.6s ease; }
-    @keyframes splashIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    .music-splash img { width: 110px; height: 110px; border: 3px solid var(--gold); border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; }
-    .music-splash .eyebrow { font-size: 0.72rem; color: var(--gold); letter-spacing: 5px; margin-bottom: 0.85rem; font-weight: 700; }
-    .music-splash .ms-title { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 700; color: #FAF4E1; letter-spacing: 3px; line-height: 1.05; margin-bottom: 0.5rem; text-transform: uppercase; }
-    .music-splash .ms-title .accent { color: var(--gold); }
-    .music-splash .ms-sub { font-family: 'Special Elite', cursive; font-size: 1rem; color: rgba(250,244,225,0.7); letter-spacing: 2px; margin-bottom: 2rem; text-transform: uppercase; }
-    .music-splash .btn-play { background: var(--gold); color: #1A1A1A; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: 3px; text-transform: uppercase; padding: 1rem 2.4rem; border: 3px solid var(--gold); cursor: pointer; transition: all 0.2s; display: inline-block; }
-    .music-splash .btn-play:hover { background: #FAF4E1; border-color: #FAF4E1; transform: translateY(-2px); }
-    .music-splash .skip { display: block; margin: 1.5rem auto 0; font-size: 0.78rem; color: rgba(250,244,225,0.5); letter-spacing: 2px; text-transform: uppercase; cursor: pointer; background: none; border: none; font-family: 'Oswald', sans-serif; }
-    .music-splash .skip:hover { color: var(--gold); }
+    .music-splash-card {
+      background: #1A1A1A;
+      border: 2px solid var(--gold);
+      padding: 2.1rem 1.85rem 1.7rem;
+      max-width: 400px; width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+      animation: msCardIn 0.35s ease;
+    }
+    @keyframes msCardIn { from { transform: scale(0.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .music-splash-card img { width: 84px; height: 84px; border-radius: 6px; margin-bottom: 1.1rem; object-fit: cover; }
+    .music-splash-card .welcome { font-family: 'Oswald',sans-serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 0.45rem; font-weight: 700; }
+    .music-splash-card .site-name { font-family: 'Oswald',sans-serif; font-size: 1.5rem; color: #FAF4E1; letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.15; margin-bottom: 1.1rem; font-weight: 700; }
+    .music-splash-card .question { font-family: 'Special Elite',cursive; font-size: 0.82rem; color: rgba(250,244,225,0.72); letter-spacing: 1.5px; margin-bottom: 1.35rem; text-transform: uppercase; }
+    .music-splash-card .btns { display: flex; gap: 0.55rem; }
+    .music-splash-card .ms-btn { flex: 1; font-family: 'Oswald',sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; padding: 0.7rem 0.8rem; cursor: pointer; transition: all 0.15s; border-radius: 3px; }
+    .music-splash-card .ms-btn-yes { background: var(--gold); color: #1A1A1A; border: 2px solid var(--gold); }
+    .music-splash-card .ms-btn-yes:hover { background: #FAF4E1; border-color: #FAF4E1; }
+    .music-splash-card .ms-btn-no { background: transparent; color: rgba(250,244,225,0.7); border: 2px solid rgba(250,244,225,0.25); }
+    .music-splash-card .ms-btn-no:hover { border-color: var(--gold); color: var(--gold); }
 
-    .music-widget { position: fixed; bottom: 20px; right: 20px; z-index: 150; display: none; opacity: 0; flex-direction: column; background: #1A1A1A; border: 2px solid var(--gold); box-shadow: 0 8px 28px rgba(0,0,0,0.6); width: 340px; max-width: calc(100vw - 40px); transition: opacity 0.4s ease; font-family: 'Oswald', sans-serif; }
-    .music-widget-bar { display: flex; align-items: center; justify-content: space-between; padding: 0.55rem 0.85rem; background: #222; border-bottom: 1px solid var(--gold); }
-    .music-widget-bar .label { font-size: 0.7rem; color: var(--gold); letter-spacing: 2.5px; font-weight: 700; text-transform: uppercase; }
-    .music-widget-bar .close { background: none; border: none; color: rgba(250,244,225,0.6); cursor: pointer; font-size: 0.9rem; padding: 0 0.4rem; font-family: inherit; }
+    .music-widget { position: fixed; bottom: 20px; right: 20px; z-index: 150; display: none; opacity: 0; flex-direction: column; background: #1A1A1A; border: 2px solid var(--gold); box-shadow: 0 8px 28px rgba(0,0,0,0.6); width: 320px; max-width: calc(100vw - 40px); transition: opacity 0.4s ease; font-family: 'Oswald',sans-serif; }
+    .music-widget-bar { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.8rem; background: #222; border-bottom: 1px solid var(--gold); }
+    .music-widget-bar .label { font-size: 0.66rem; color: var(--gold); letter-spacing: 2.5px; font-weight: 700; text-transform: uppercase; }
+    .music-widget-bar .close { background: none; border: none; color: rgba(250,244,225,0.55); cursor: pointer; font-size: 0.85rem; padding: 0 0.3rem; font-family: inherit; }
     .music-widget-bar .close:hover { color: var(--gold); }
     .music-widget iframe { width: 100%; height: 175px; border: 0; display: block; background: #1A1A1A; }
     @media (max-width: 600px) { .music-widget { bottom: 12px; right: 12px; width: calc(100vw - 24px); } }
@@ -1523,15 +1534,17 @@ function setLanguage(lang) {
 setLanguage('es');
 </script>
 
-<!-- MUSIC SPLASH + WIDGET (Touché Pussycat Vol 1) -->
+<!-- WELCOME SPLASH + MUSIC WIDGET -->
 <div class="music-splash" id="musicSplash">
-  <div class="music-splash-inner">
-    <img src="logo.png" onerror="this.onerror=null;this.src='logo.jpg'" alt="Speak Easy"/>
-    <div class="eyebrow">UN ÁLBUM DE LA DRA. NICOLE BISHOP</div>
-    <div class="ms-title">Touché Pussycat<br/><span class="accent">Vol 1.</span></div>
-    <div class="ms-sub">Presiona play para entrar</div>
-    <button class="btn-play" onclick="seMusic.play()">▶ Escuchar Música</button>
-    <button class="skip" onclick="seMusic.skip()">Continuar sin sonido →</button>
+  <div class="music-splash-card">
+    <img src="logo.jpg" alt="Speak Easy Charlotte"/>
+    <div class="welcome">Bienvenido a</div>
+    <div class="site-name">Speak Easy Charlotte</div>
+    <div class="question">¿Continuar con música?</div>
+    <div class="btns">
+      <button class="ms-btn ms-btn-yes" onclick="seMusic.play()">Tocar música</button>
+      <button class="ms-btn ms-btn-no" onclick="seMusic.skip()">Sin música</button>
+    </div>
   </div>
 </div>
 <div class="music-widget" id="musicWidget">
@@ -1546,7 +1559,7 @@ setLanguage('es');
   var splash=document.getElementById('musicSplash');
   var widget=document.getElementById('musicWidget');
   function show(el){el.style.display='flex';requestAnimationFrame(function(){el.style.opacity='1';});}
-  function hide(el,cb){el.style.opacity='0';setTimeout(function(){el.style.display='none';if(cb)cb();},450);}
+  function hide(el,cb){el.style.opacity='0';setTimeout(function(){el.style.display='none';if(cb)cb();},400);}
   window.seMusic={
     play:function(){hide(splash,function(){show(widget);});sessionStorage.setItem('seMusicChoice','play');},
     skip:function(){hide(splash);sessionStorage.setItem('seMusicChoice','skip');},
