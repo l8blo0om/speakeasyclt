@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Speak Easy | Game Manual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Special+Elite&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --board:   #F0E6C8;
+      --cream:   #FAF4E1;
+      --dark:    #1A1A1A;
+      --red:     #CC2529;
+      --orange:  #E8734A;
+      --green:   #2D6B3C;
+      --blue:    #1B3A6B;
+      --yellow:  #F5C518;
+      --purple:  #5C2D91;
+      --teal:    #008B8B;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--board); color: var(--dark); }
+
+    /* ── RAINBOW ── */
+    .rainbow { height: 10px; background: repeating-linear-gradient(90deg, var(--red) 0 40px, var(--orange) 40px 80px, var(--yellow) 80px 120px, var(--green) 120px 160px, var(--blue) 160px 200px, var(--purple) 200px 240px); }
+
+    /* ── NAV ── */
+    nav { background: var(--dark); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; border-bottom: 4px solid var(--yellow); }
+    .nav-logo { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.1rem; color: #fff; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; }
+    .nav-logo span { color: var(--yellow); }
+    .nav-right { display: flex; gap: 1rem; align-items: center; }
+    .back-link { font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.6); text-decoration: none; }
+    .back-link:hover { color: var(--yellow); }
+    .print-btn { background: var(--yellow); color: var(--dark); font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0.4rem 1.1rem; border: none; cursor: pointer; }
+    .print-btn:hover { background: #d4a800; }
+
+    /* ── COVER ── */
+    .cover { background: var(--dark); padding: 5rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
+    .cover::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 20px); }
+    .cover-tag { font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; background: var(--red); color: #fff; display: inline-block; padding: 0.2rem 0.8rem; margin-bottom: 1rem; position: relative; }
+    .cover h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 700; text-transform: uppercase; letter-spacing: 4px; color: #fff; line-height: 1; margin-bottom: 0.4rem; position: relative; }
+    .cover h1 span { color: var(--yellow); }
+    .cover-sub { font-family: 'Special Elite', cursive; font-size: 1rem; color: rgba(255,255,255,0.55); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2.5rem; position: relative; }
+    .cover-stats { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; position: relative; }
+    .cover-stat { text-align: center; }
+    .cover-stat .num { font-family: 'Oswald', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--yellow); line-height: 1; }
+    .cover-stat .label { font-family: 'Oswald', sans-serif; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 0.2rem; }
+
+    /* ── TOC ── */
+    .toc { background: var(--cream); border-top: 6px solid var(--dark); border-bottom: 6px solid var(--dark); padding: 3rem 2rem; }
+    .toc-inner { max-width: 900px; margin: 0 auto; }
+    .toc h2 { font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.75rem; }
+    .toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; }
+    .toc-item { display: flex; align-items: center; gap: 0.6rem; background: #fff; border: 2px solid var(--dark); padding: 0.6rem 0.85rem; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
+    .toc-item:hover { transform: translateY(-2px); box-shadow: 3px 3px 0 var(--dark); }
+    .toc-item .toc-icon { font-size: 1.2rem; min-width: 24px; }
+    .toc-item .toc-name { font-family: 'Oswald', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--dark); }
+    .toc-item .toc-cat { font-size: 0.7rem; color: #888; font-family: 'Nunito', sans-serif; text-transform: none; letter-spacing: 0; display: block; }
+
+    /* ── CATEGORY HEADERS ── */
+    .cat-header { padding: 3rem 2rem 1rem; max-width: 1100px; margin: 0 auto; }
+    .cat-label { font-family: 'Oswald', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #fff; padding: 0.22rem 0.8rem; display: inline-block; margin-bottom: 0.6rem; }
+    .cat-header h2 { font-family: 'Oswald', sans-serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+    .cat-header p { font-size: 0.95rem; color: #555; line-height: 1.65; max-width: 600px; margin-top: 0.4rem; }
+
+    /* ── GAME CARDS ── */
+    .games-grid { max-width: 1100px; margin: 0 auto; padding: 0 2rem 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 1.5rem; }
+    .game-card { background: var(--cream); border: 4px solid var(--dark); box-shadow: 5px 5px 0 var(--dark); display: flex; flex-direction: column; }
+    .game-top { display: flex; align-items: stretch; border-bottom: 3px solid var(--dark); }
+    .game-icon-block { font-size: 2.4rem; min-width: 72px; display: flex; align-items: center; justify-content: center; border-right: 3px solid var(--dark); padding: 1rem; }
+    .game-title-block { padding: 0.85rem 1rem; flex: 1; }
+    .game-cat-badge { font-family: 'Oswald', sans-serif; font-size: 0.58rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; padding: 0.15rem 0.6rem; display: inline-block; margin-bottom: 0.3rem; }
+    .game-name { font-family: 'Oswald', sans-serif; font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; line-height: 1.1; }
+    .game-tagline { font-size: 0.82rem; color: #666; margin-top: 0.2rem; font-style: italic; }
+
+    /* Quick stats bar */
+    .game-stats { display: flex; gap: 0; border-bottom: 3px solid var(--dark); }
+    .game-stat { flex: 1; text-align: center; padding: 0.5rem 0.4rem; border-right: 2px solid rgba(26,26,26,0.15); }
+    .game-stat:last-child { border-right: none; }
+    .game-stat .s-label { font-family: 'Oswald', sans-serif; font-size: 0.55rem; letter-spacing: 1.5px; text-transform: uppercase; color: #999; display: block; margin-bottom: 0.15rem; }
+    .game-stat .s-val { font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--dark); }
+
+    /* Game body */
+    .game-body { padding: 1.1rem 1.25rem; flex: 1; }
+    .game-section-label { font-family: 'Oswald', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 0.35rem; margin-top: 0.85rem; display: block; }
+    .game-section-label:first-child { margin-top: 0; }
+    .game-body p, .game-body li { font-size: 0.88rem; color: #444; line-height: 1.65; }
+    .game-body ul, .game-body ol { padding-left: 1.15rem; }
+    .game-body li { margin-bottom: 0.3rem; }
+    .game-body strong { color: var(--dark); }
+
+    /* Money bar */
+    .money-bar { display: flex; gap: 0; border-top: 3px solid var(--dark); }
+    .money-earn { flex: 1; background: var(--green); color: #fff; padding: 0.6rem 1rem; border-right: 2px solid var(--dark); }
+    .money-lose { flex: 1; background: var(--red); color: #fff; padding: 0.6rem 1rem; }
+    .money-earn .m-label, .money-lose .m-label { font-family: 'Oswald', sans-serif; font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.75; display: block; margin-bottom: 0.15rem; }
+    .money-earn .m-val, .money-lose .m-val { font-family: 'Oswald', sans-serif; font-size: 0.88rem; font-weight: 700; line-height: 1.35; }
+
+    /* Tip bar */
+    .tip-bar { background: rgba(26,26,26,0.06); border-top: 2px solid rgba(26,26,26,0.12); padding: 0.65rem 1.25rem; display: flex; gap: 0.5rem; align-items: flex-start; }
+    .tip-bar .tip-icon { font-size: 0.9rem; margin-top: 0.1rem; }
+    .tip-bar p { font-size: 0.82rem; color: #555; line-height: 1.55; font-style: italic; }
+
+    /* ── ECONOMY SECTION ── */
+    .economy-section { background: var(--yellow); border-top: 6px solid var(--dark); border-bottom: 6px solid var(--dark); padding: 4rem 2rem; }
+    .econ-inner { max-width: 900px; margin: 0 auto; }
+    .econ-inner h2 { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--dark); margin-bottom: 0.5rem; }
+    .econ-inner > p { color: rgba(0,0,0,0.6); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem; }
+    .econ-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .econ-col { background: var(--dark); padding: 1.5rem; }
+    .econ-col h3 { font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--yellow); margin-bottom: 1rem; }
+    .econ-row { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.85rem; }
+    .econ-row .e-icon { font-size: 1.2rem; min-width: 26px; }
+    .econ-row p { font-size: 0.86rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
+    .econ-row strong { color: var(--yellow); }
+    .econ-rule { background: rgba(245,197,24,0.12); border: 2px solid rgba(245,197,24,0.3); padding: 1rem 1.25rem; margin-top: 1.5rem; }
+    .econ-rule p { font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.65; }
+    .econ-rule strong { color: var(--yellow); }
+
+    /* ── CATEGORY COLOR SCHEMES ── */
+    /* Economy */
+    .cat-economy .cat-label { background: var(--green); }
+    .cat-economy .game-cat-badge { background: var(--green); }
+    .cat-economy .game-icon-block { background: rgba(45,107,60,0.08); }
+
+    /* Circle */
+    .cat-circle .cat-label { background: var(--blue); }
+    .cat-circle .game-cat-badge { background: var(--blue); }
+    .cat-circle .game-icon-block { background: rgba(27,58,107,0.08); }
+
+    /* Team */
+    .cat-team .cat-label { background: var(--orange); }
+    .cat-team .game-cat-badge { background: var(--orange); }
+    .cat-team .game-icon-block { background: rgba(232,115,74,0.08); }
+
+    /* Individual */
+    .cat-individual .cat-label { background: var(--red); }
+    .cat-individual .game-cat-badge { background: var(--red); }
+    .cat-individual .game-icon-block { background: rgba(204,37,41,0.08); }
+
+    /* Language */
+    .cat-language .cat-label { background: var(--purple); }
+    .cat-language .game-cat-badge { background: var(--purple); }
+    .cat-language .game-icon-block { background: rgba(92,45,145,0.08); }
+
+    /* Improv */
+    .cat-improv .cat-label { background: var(--teal); }
+    .cat-improv .game-cat-badge { background: var(--teal); }
+    .cat-improv .game-icon-block { background: rgba(0,139,139,0.08); }
+
+    /* End of Night */
+    .cat-end .cat-label { background: var(--dark); }
+    .cat-end .game-cat-badge { background: var(--dark); }
+    .cat-end .game-icon-block { background: rgba(26,26,26,0.06); }
+
+    /* ── SECTION DIVIDER ── */
+    .section-divider { height: 4px; background: repeating-linear-gradient(90deg, var(--red) 0 40px, var(--orange) 40px 80px, var(--yellow) 80px 120px, var(--green) 120px 160px, var(--blue) 160px 200px, var(--purple) 200px 240px); margin: 2rem 0; }
+
+    /* ── PRINT ── */
+    @media print {
+      nav, .print-btn { display: none; }
+      body { background: #fff; }
+      .game-card { box-shadow: none; page-break-inside: avoid; border: 2px solid #333; }
+      .game-cat-badge, .money-earn, .money-lose, .cat-label { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .games-grid { grid-template-columns: 1fr; padding: 0 1rem 1rem; }
+      .econ-cols { grid-template-columns: 1fr; }
+      .toc-grid { grid-template-columns: 1fr 1fr; }
+      .cover-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Speak <span>Easy</span></a>
+  <div class="nav-right">
+    <a href="index.html" class="back-link">← Main Site</a>
+    <a href="curriculum.html" class="back-link">Curriculum</a>
+    <button class="print-btn" onclick="window.print()">🖨 Print / Save PDF</button>
+  </div>
+</nav>
+<div class="rainbow"></div>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-tag">Official Facilitator Guide</div>
+  <h1>The <span>Game</span><br/>Manual</h1>
+  <p class="cover-sub">Speak Easy Columbia &amp; Charlotte · All Games · All Rules · All Dollar Amounts</p>
+  <div class="cover-stats">
+    <div class="cover-stat"><div class="num">18</div><div class="label">Games</div></div>
+    <div class="cover-stat"><div class="num">7</div><div class="label">Categories</div></div>
+    <div class="cover-stat"><div class="num">1</div><div class="label">Economy</div></div>
+    <div class="cover-stat"><div class="num">∞</div><div class="label">Laughs</div></div>
+  </div>
+</div>
+<div class="rainbow"></div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc" id="top">
+  <div class="toc-inner">
+    <h2>All Games</h2>
+    <div class="toc-grid">
+      <a href="#economy" class="toc-item"><span class="toc-icon">💵</span><div><span class="toc-name">The Economy</span><span class="toc-cat">How Speak Easy Dollars work</span></div></a>
+      <a href="#pass-go" class="toc-item"><span class="toc-icon">🏁</span><div><span class="toc-name">Pass GO</span><span class="toc-cat">Opening · Runs all night</span></div></a>
+      <a href="#speed-railroad" class="toc-item"><span class="toc-icon">🚂</span><div><span class="toc-name">Speed Railroad</span><span class="toc-cat">Warmup · Social</span></div></a>
+      <a href="#fishbowl" class="toc-item"><span class="toc-icon">🐠</span><div><span class="toc-name">Fishbowl / Socratic Circle</span><span class="toc-cat">Circle · Instructional</span></div></a>
+      <a href="#talking-stick" class="toc-item"><span class="toc-icon">🪄</span><div><span class="toc-name">Talking Stick</span><span class="toc-cat">Circle · Equity</span></div></a>
+      <a href="#pictionary" class="toc-item"><span class="toc-icon">🎨</span><div><span class="toc-name">Pictionary</span><span class="toc-cat">Team · Vocabulary</span></div></a>
+      <a href="#word-chain" class="toc-item"><span class="toc-icon">🔗</span><div><span class="toc-name">Word Chain</span><span class="toc-cat">Team · Language</span></div></a>
+      <a href="#community-jackpot" class="toc-item"><span class="toc-icon">👥</span><div><span class="toc-name">Community Chest Jackpot</span><span class="toc-cat">Team · Whole room</span></div></a>
+      <a href="#property-auction" class="toc-item"><span class="toc-icon">🏠</span><div><span class="toc-name">Property Auction</span><span class="toc-cat">Economy · Social</span></div></a>
+      <a href="#hot-seat" class="toc-item"><span class="toc-icon">🔥</span><div><span class="toc-name">Jail / Hot Seat</span><span class="toc-cat">Individual · Challenge</span></div></a>
+      <a href="#chance-cards" class="toc-item"><span class="toc-icon">🃏</span><div><span class="toc-name">Chance Card Draw</span><span class="toc-cat">Individual · Wild card</span></div></a>
+      <a href="#bounty" class="toc-item"><span class="toc-icon">💰</span><div><span class="toc-name">Luxury Tax Bounty</span><span class="toc-cat">Language · Runs all night</span></div></a>
+      <a href="#accent" class="toc-item"><span class="toc-icon">🎤</span><div><span class="toc-name">Accent Imitation</span><span class="toc-cat">Language · Pronunciation</span></div></a>
+      <a href="#song" class="toc-item"><span class="toc-icon">🎵</span><div><span class="toc-name">Song Challenge</span><span class="toc-cat">Language · Listening</span></div></a>
+      <a href="#one-word" class="toc-item"><span class="toc-icon">📖</span><div><span class="toc-name">One Word Story</span><span class="toc-cat">Language · Group</span></div></a>
+      <a href="#yes-and" class="toc-item"><span class="toc-icon">🎪</span><div><span class="toc-name">Yes, And (Improv)</span><span class="toc-cat">Improv · Warmup</span></div></a>
+      <a href="#freeze-tag" class="toc-item"><span class="toc-icon">🧊</span><div><span class="toc-name">Freeze Tag</span><span class="toc-cat">Improv · Energy</span></div></a>
+      <a href="#skits" class="toc-item"><span class="toc-icon">🎭</span><div><span class="toc-name">Skits &amp; Role-Play</span><span class="toc-cat">Improv · Instructional</span></div></a>
+      <a href="#boardwalk" class="toc-item"><span class="toc-icon">🏆</span><div><span class="toc-name">Boardwalk Battle</span><span class="toc-cat">End of Night · Final</span></div></a>
+      <a href="#free-parking" class="toc-item"><span class="toc-icon">🅿️</span><div><span class="toc-name">Free Parking Payout</span><span class="toc-cat">End of Night · Jackpot</span></div></a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- THE ECONOMY -->
+<!-- ════════════════════════════════════════ -->
+<div class="economy-section" id="economy">
+  <div class="econ-inner">
+    <div style="font-family:'Oswald',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--dark);color:var(--yellow);display:inline-block;padding:0.2rem 0.8rem;margin-bottom:0.75rem;">Foundation</div>
+    <h2>Speak Easy Dollars</h2>
+    <p>Real Monopoly money. Every game, every activity, every night runs on this economy. You earn it. You spend it. You wager it. You walk out with more — or you come back next week to win it back.</p>
+    <div class="econ-cols">
+      <div class="econ-col">
+        <h3>💰 How You Earn</h3>
+        <div class="econ-row"><span class="e-icon">🚪</span><p><strong>Show up</strong> — collect $100 just for walking in the door.</p></div>
+        <div class="econ-row"><span class="e-icon">🗣️</span><p><strong>Speak unprompted</strong> — volunteer an answer before being called on, earn $50 bonus.</p></div>
+        <div class="econ-row"><span class="e-icon">🏆</span><p><strong>Win a game</strong> — each game lists its own earn amounts.</p></div>
+        <div class="econ-row"><span class="e-icon">👂</span><p><strong>Catch a covered-word mistake</strong> — hear someone mispronounce or misuse a Vocabulary Drop word from tonight? Collect <strong>$100</strong> from them on the spot.</p></div>
+        <div class="econ-row"><span class="e-icon">🎓</span><p><strong>Teach something</strong> — explain a concept to a classmate clearly? Facilitator awards <strong>$200</strong>.</p></div>
+        <div class="econ-row"><span class="e-icon">🎯</span><p><strong>Complete a Chance Card</strong> — earn listed on the card.</p></div>
+      </div>
+      <div class="econ-col">
+        <h3>💸 How You Spend &amp; Lose</h3>
+        <div class="econ-row"><span class="e-icon">🔄</span><p><strong>Buy back in</strong> — made a mistake mid-game? Pay $50 to try again instead of sitting out.</p></div>
+        <div class="econ-row"><span class="e-icon">🐠</span><p><strong>Tap into the Fishbowl</strong> — pay $50 to swap into the inner circle.</p></div>
+        <div class="econ-row"><span class="e-icon">💡</span><p><strong>Buy a hint</strong> — stuck on a word or answer? Pay $50 for one clue.</p></div>
+        <div class="econ-row"><span class="e-icon">⏭️</span><p><strong>Skip a turn</strong> — not ready? Pay $30 to pass. No explanation needed.</p></div>
+        <div class="econ-row"><span class="e-icon">❌</span><p><strong>Wrong answer in a wagered game</strong> — lose what you bet.</p></div>
+        <div class="econ-row"><span class="e-icon">🔊</span><p><strong>Mispronounce a covered word</strong> — pay $100 to whoever catches it.</p></div>
+        <div class="econ-rule">
+          <p><strong>Free Parking Pot:</strong> All fines, taxes, and penalties go to the center of the table. It grows all night. It pays out at the end. Never goes to the facilitator.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- WARMUP GAMES -->
+<!-- ════════════════════════════════════════ -->
+<div class="cat-header cat-economy">
+  <span class="cat-label cat-economy">Warmup · Runs All Night</span>
+  <h2>Opening Games</h2>
+  <p>These two games start the moment doors open and run in the background all night. No facilitator required after setup.</p>
+</div>
+
+<div class="games-grid">
+
+  <!-- PASS GO -->
+  <div class="game-card cat-economy" id="pass-go">
+    <div class="game-top">
+      <div class="game-icon-block">🏁</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-economy">Warmup · All Night</span>
+        <div class="game-name">Pass GO</div>
+        <div class="game-tagline">Order your drink in English. Collect $200. Every single time.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">Everyone</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">All night</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">None</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Passive</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">How It Works</span>
+      <p>Announce at the start of every class night: <em>"Every time you order your drink at the bar — or ask for anything — in English only, with no pointing, no phone translating, no switching languages — you collect $200. Every time. All night."</em></p>
+      <span class="game-section-label">The Rules</span>
+      <ul>
+        <li>Must use full sentences, not just one word</li>
+        <li>No pointing at the menu as a substitute for words</li>
+        <li>Mistakes are fine — if you tried in English, it counts</li>
+        <li>Collect from the bank on the honor system (or have a partner witness it)</li>
+      </ul>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">$200 each successful order</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">Nothing — no penalty for trying</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>This is the most important game because it happens in the real world, in real time, every visit. Celebrate it loudly the first time someone does it. The room notices.</p></div>
+  </div>
+
+  <!-- SPEED RAILROAD -->
+  <div class="game-card cat-economy" id="speed-railroad">
+    <div class="game-top">
+      <div class="game-icon-block">🚂</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-economy">Warmup · Social</span>
+        <div class="game-name">Speed Railroad</div>
+        <div class="game-tagline">Speed networking. 90 seconds. 4 people. Go.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">Everyone</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">10–12 min</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">Topic cards, timer</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Active</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">Setup</span>
+      <p>Give everyone a "Railroad card" — a small card with a conversation topic (Sports, Food, Family, Work, Dreams, Travel, Music, etc.). This is their "line" for the round.</p>
+      <span class="game-section-label">How It Works</span>
+      <ol>
+        <li>Pair up with someone. 90 seconds — go. Use your topic card to steer the conversation.</li>
+        <li>Facilitator rings a bell (or claps twice). Find a new partner.</li>
+        <li>4 rounds total. Try to talk to 4 different people.</li>
+        <li>At the end, everyone who completed all 4 rounds collects their bonus.</li>
+      </ol>
+      <span class="game-section-label">Variations</span>
+      <p>Advanced: both people must work BOTH their topics into one conversation. Harder, funnier, more natural.</p>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">$50 per completed round · $100 bonus for all 4</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">Nothing — this is warmup, no penalties</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>Run this at the very start before anything else. It breaks the ice, gets people talking immediately, and means nobody is sitting quietly when the real games begin.</p></div>
+  </div>
+
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- CIRCLE GAMES -->
+<!-- ════════════════════════════════════════ -->
+<div class="cat-header cat-circle">
+  <span class="cat-label">Circle Games</span>
+  <h2>Fishbowl &amp; Circle Formats</h2>
+  <p>The instructional heart of every class. Inner circle speaks, outer circle observes and earns. The debrief is its own event.</p>
+</div>
+
+<div class="games-grid">
+
+  <!-- FISHBOWL -->
+  <div class="game-card cat-circle" id="fishbowl">
+    <div class="game-top">
+      <div class="game-icon-block">🐠</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-circle">Circle · Instructional</span>
+        <div class="game-name">Fishbowl / Socratic Circle</div>
+        <div class="game-tagline">The inner ring talks. The outer ring watches and earns.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Inner Ring</span><span class="s-val">4–6 people</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">10–15 min</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">Chairs, topic card</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Active</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">Setup</span>
+      <p>Arrange chairs in two rings — inner circle of 4–6 facing each other, outer circle surrounding them. One empty chair in the inner circle is always left open (the "tap-in" seat).</p>
+      <span class="game-section-label">How It Works</span>
+      <ol>
+        <li>Facilitator announces tonight's topic and the grammar focus (e.g., use present perfect when you introduce your story).</li>
+        <li>Inner circle discusses. Only they may speak.</li>
+        <li>Outer circle observes, takes mental notes on language — not just content.</li>
+        <li>Anyone from outer ring can pay <strong>$50</strong> to tap in and take the empty seat. The person who has spoken least in the inner circle rotates out.</li>
+        <li>After 10 minutes, facilitator stops the inner circle and opens debrief to the whole room.</li>
+      </ol>
+      <span class="game-section-label">The Debrief (most important part)</span>
+      <p>Ask the outer circle: <em>"What language did you hear that worked well? What would you say differently?"</em> This is where the learning crystallizes.</p>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">$50 per vocabulary word used correctly (outer ring spots it) · $100 for tap-in speaker who lasts the full round</span></div>
+      <div class="money-lose"><span class="m-label">Cost</span><span class="m-val">$50 to tap in from outer ring</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>The empty chair is the most important prop in the room. Keep pointing to it early — shy students need to see others tap in before they'll try it themselves.</p></div>
+  </div>
+
+  <!-- TALKING STICK -->
+  <div class="game-card cat-circle" id="talking-stick">
+    <div class="game-top">
+      <div class="game-icon-block">🪄</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-circle">Circle · Equity</span>
+        <div class="game-name">Talking Stick</div>
+        <div class="game-tagline">Whoever holds it speaks. Or passes. No explanation needed.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">Whole room</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">Flexible</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">One object</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Light</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">The Object</span>
+      <p>Doesn't have to be a stick. Should be tactile, a little playful, good to hold. A smooth stone, a koosh ball, a small plush. It becomes part of the classroom identity — students develop feelings about it.</p>
+      <span class="game-section-label">The One Rule</span>
+      <p>Whoever holds the object may speak. Everyone else listens. When done, pass to anyone in the circle. You may always pass without speaking — just make eye contact and hand it over deliberately.</p>
+      <span class="game-section-label">Use It For</span>
+      <ul>
+        <li>Opening check-ins ("How was your week?")</li>
+        <li>Post-fishbowl debrief rounds</li>
+        <li>Any moment the room is getting too chaotic</li>
+        <li>Closing reflections at the end of class</li>
+      </ul>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">$50 for speaking unprompted · $0 for passing (passing is always free)</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">Nothing — silence is never penalized</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>The pass is the most important option. Students who aren't ready will participate through passing — the eye contact and deliberate handoff IS participation. Honor it as much as speaking.</p></div>
+  </div>
+
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- TEAM GAMES -->
+<!-- ════════════════════════════════════════ -->
+<div class="cat-header cat-team">
+  <span class="cat-label">Team Games</span>
+  <h2>Team Games</h2>
+  <p>Loud, fast, competitive. The community glue. Everyone's rooting for each other — even when they're playing against each other.</p>
+</div>
+
+<div class="games-grid">
+
+  <!-- PICTIONARY -->
+  <div class="game-card cat-team" id="pictionary">
+    <div class="game-top">
+      <div class="game-icon-block">🎨</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-team">Team · Vocabulary</span>
+        <div class="game-name">Pictionary</div>
+        <div class="game-tagline">Draw the word. Wager before the draw. Gets loud. That's the point.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Teams</span><span class="s-val">2–4 teams of 3–4</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">15–20 min</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">Whiteboard or large paper, markers, cards</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Active</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">Setup</span>
+      <p>Divide into teams. Prepare two card decks: <strong>Vocabulary Cards</strong> (tonight's vocab words) and <strong>Wild Cards</strong> (idioms, social situations, American concepts). Shuffle together.</p>
+      <span class="game-section-label">How It Works</span>
+      <ol>
+        <li>One person from each team draws a card. They see the word — nobody else does.</li>
+        <li>Teams wager Speak Easy Dollars before the drawing begins. Announce your bet out loud.</li>
+        <li>Drawer has 60 seconds to draw. No words, no letters, no gestures.</li>
+        <li>Team guesses. If correct before time runs out, they collect their wager plus the pot.</li>
+        <li>Optional: after guessing, the team must use the word in a correct sentence to lock in the earn.</li>
+      </ol>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">Wager amount × 2 for correct guess + correct sentence</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">Your full wager if time runs out without correct guess</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>The wager-before-draw rule is what makes this exciting. Teams have to commit before they see how hard the draw is. Add the "sentence required to lock in" rule for max language practice.</p></div>
+  </div>
+
+  <!-- WORD CHAIN -->
+  <div class="game-card cat-team" id="word-chain">
+    <div class="game-top">
+      <div class="game-icon-block">🔗</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-team">Team · Language</span>
+        <div class="game-name">Word Chain</div>
+        <div class="game-tagline">Keep the chain going or lose a dollar. Miss it — something happens.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">5–20</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">8–12 min</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">None</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Light</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">Version A — Vocabulary Sentence Chain</span>
+      <p>Go around the circle. Each person must use one of tonight's vocabulary words correctly in a sentence. The word must be used naturally — not just said. 5 seconds to answer. Repeat a word someone already used = pay $50.</p>
+      <span class="game-section-label">Version B — The Sixth Word</span>
+      <p>Facilitator sets a target word in secret. Players count off one word at a time building a sentence together. Whoever says the sixth word must use the secret target word — or pay $100 and the chain restarts.</p>
+      <span class="game-section-label">Version C — Association Chain</span>
+      <p>Say a word. Next person says a word that connects. You must explain the connection in one sentence. Can't explain it = pay $50. The explanations are the game.</p>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">$50 for each correct link in the chain · $200 if your team completes 10 in a row</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">$50–$100 for breaking the chain, repeating, or wrong usage</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>Version B is the most fun in a bar setting — the secret target word makes everyone nervous about which position they'll land in. Reveal the target word after each round so the learning sticks.</p></div>
+  </div>
+
+  <!-- COMMUNITY CHEST JACKPOT -->
+  <div class="game-card cat-team" id="community-jackpot">
+    <div class="game-top">
+      <div class="game-icon-block">👥</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-team">Team · Whole Room</span>
+        <div class="game-name">Community Chest Jackpot</div>
+        <div class="game-tagline">One challenge. Whole room. First one there wins the pot.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">Whole room</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">5–30 min</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">Community Chest card deck</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Light</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">How It Works</span>
+      <p>Facilitator draws a Community Chest card and reads it aloud. The challenge is open to the whole room. First person to complete it wins the jackpot (the Free Parking pot or a set amount).</p>
+      <span class="game-section-label">Sample Community Chest Cards</span>
+      <ul>
+        <li><em>"Make 3 different people genuinely laugh using only English — before the next game starts."</em></li>
+        <li><em>"Get someone to teach you a word in their native language, then use it in an English sentence correctly."</em></li>
+        <li><em>"Use all 5 of tonight's vocabulary words in one conversation. Both people must witness it."</em></li>
+        <li><em>"Find two people who have the same answer to: 'What's the hardest English word to pronounce?'"</em></li>
+        <li><em>"Start a sentence. Get 4 other people to each add one word. Read the result aloud."</em></li>
+      </ul>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">Full Free Parking pot or $300 set prize</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">Nothing for trying · Time only</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>Run this during open social time so it doesn't interrupt structured activities. The challenges that require interacting with others are the best ones — they make the whole room move around and talk.</p></div>
+  </div>
+
+  <!-- PROPERTY AUCTION -->
+  <div class="game-card cat-team" id="property-auction">
+    <div class="game-top">
+      <div class="game-icon-block">🏠</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-team">Economy · Social</span>
+        <div class="game-name">Property Auction</div>
+        <div class="game-tagline">Own the topic. Collect rent every time someone talks to you about it.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">Whole room</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">5 min setup · All night</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">Property cards, monopoly money</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Setup only</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">Setup (at the start of the night)</span>
+      <p>Write 6 conversation topics on cards: <strong>Sports · Food · Movies · Work · Love · Travel</strong>. Auction them off to the highest bidder. Each topic sold to one person.</p>
+      <span class="game-section-label">How It Works All Night</span>
+      <p>If you own "Sports" and someone brings up sports in conversation with you — they owe you <strong>$10</strong>. If they use one of tonight's vocabulary words IN that conversation — you owe THEM $20 instead (reverse rent).</p>
+      <span class="game-section-label">Strategy</span>
+      <p>Smart players buy the topic they know most about. That topic becomes a magnet for their conversations all night. The reverse-rent rule means knowing vocabulary protects you.</p>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">$10 rent every time someone uses your topic with you</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">Auction bid upfront · $20 if renter uses vocab correctly (reverse rent)</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>Best played with groups of 10+. In smaller groups, reduce to 3–4 topics. The reverse rent rule is the magic — it makes vocabulary practice financially smart, not just educationally right.</p></div>
+  </div>
+
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- INDIVIDUAL CHALLENGES -->
+<!-- ════════════════════════════════════════ -->
+<div class="cat-header cat-individual">
+  <span class="cat-label">Individual Challenges</span>
+  <h2>Individual Challenges</h2>
+  <p>One person in the center. The rest of the room watching, listening, and earning. High energy, high stakes, low actual risk.</p>
+</div>
+
+<div class="games-grid">
+
+  <!-- HOT SEAT -->
+  <div class="game-card cat-individual" id="hot-seat">
+    <div class="game-top">
+      <div class="game-icon-block">🔥</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-individual">Individual · Challenge</span>
+        <div class="game-name">Jail / Hot Seat</div>
+        <div class="game-tagline">Sit in the center. Answer everything. 60 seconds. Don't stop.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">In Seat</span><span class="s-val">1 person</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">60–90 sec per player</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">One chair, timer</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Active</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">Setup</span>
+      <p>One chair placed in the center or front of the room. This is "Jail." Whoever sits there must stay until their time is up — they cannot deflect, cannot say "I don't know," cannot stay silent for more than 3 seconds.</p>
+      <span class="game-section-label">How It Works</span>
+      <ol>
+        <li>One volunteer (or highest-earning person this round) sits in Jail.</li>
+        <li>The rest of the room fires questions — in English — for 60 seconds straight.</li>
+        <li>Prisoner must answer every question in a complete sentence. One sentence minimum per answer.</li>
+        <li>Facilitator calls time. If prisoner survived clean, they collect the prize. If they broke a rule, they pay the fine but still get credit for trying.</li>
+      </ol>
+      <span class="game-section-label">Grammar Variation</span>
+      <p>Every answer must use tonight's grammar focus (present perfect, conditional, etc.). Crowd earns $50 for each time they catch a grammar mistake in a Jail answer.</p>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">$300 for surviving 60 seconds · $50 for crowd catching grammar mistakes</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">$100 for going silent 3+ seconds · $50 per missed grammar rule</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>The volunteer system is better than drafting people — but after a few weeks, students start volunteering because the $300 payout is real. The first brave person makes it easier for everyone else.</p></div>
+  </div>
+
+  <!-- CHANCE CARDS -->
+  <div class="game-card cat-individual" id="chance-cards">
+    <div class="game-top">
+      <div class="game-icon-block">🃏</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-individual">Individual · Wild Card</span>
+        <div class="game-name">Chance Card Draw</div>
+        <div class="game-tagline">Draw a card. Do what it says. The room watches.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">1 or whole room</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">2–5 min per card</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">Chance card deck</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Light</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">How It Works</span>
+      <p>Facilitator (or a student) draws from the Chance deck and reads it aloud. The card applies to whoever drew it, or to the whole room depending on the card.</p>
+      <span class="game-section-label">Sample Chance Cards</span>
+      <ul>
+        <li><em>"Do an American accent for the next 10 minutes — or pay $100."</em></li>
+        <li><em>"Teach the group one word from your native language. If 3 people use it in English tonight, you earn $300."</em></li>
+        <li><em>"Advance to Boardwalk — tell a 60-second story using these 3 words: umbrella, Wednesday, embarrassed."</em></li>
+        <li><em>"Go directly to Jail."</em> (Hot Seat, right now.)</li>
+        <li><em>"Bank error in your favor — collect $200 from the bank."</em></li>
+        <li><em>"Luxury Tax: use a covered word incorrectly in the next 5 minutes and you owe the pot $200."</em></li>
+        <li><em>"Get out of Jail Free — save for when you'd rather not answer a Hot Seat question."</em></li>
+      </ul>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">Varies by card — up to $300</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">Varies by card — $50–$200</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>Build your own deck. Write cards on index cards. Add new ones as the group develops inside jokes and references. After a few weeks, students will start requesting specific cards be added.</p></div>
+  </div>
+
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- LANGUAGE GAMES -->
+<!-- ════════════════════════════════════════ -->
+<div class="cat-header cat-language">
+  <span class="cat-label">Language Games</span>
+  <h2>Language Games</h2>
+  <p>These games target specific language skills — pronunciation, listening, vocabulary. They feel like play. The learning is built in.</p>
+</div>
+
+<div class="games-grid">
+
+  <!-- BOUNTY -->
+  <div class="game-card cat-language" id="bounty">
+    <div class="game-top">
+      <div class="game-icon-block">💰</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-language">Language · All Night</span>
+        <div class="game-name">Luxury Tax Bounty</div>
+        <div class="game-tagline">Catch a mispronounced covered word. Collect $100 from that person.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">Whole room</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">All night</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">Vocabulary list on board</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Passive</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">Setup</span>
+      <p>After the Vocabulary Drop at the start of class, write all tonight's words on the board. Everyone can see them. Everyone knows they're in play.</p>
+      <span class="game-section-label">The Rule</span>
+      <p>Any word on tonight's vocabulary list that gets mispronounced — wrong stress, wrong vowel sound, wrong form — the first person to call it out collects $100 from the person who said it.</p>
+      <span class="game-section-label">The Challenge Rule</span>
+      <p>The "catcher" must also pronounce the word correctly to collect. If the catcher gets it wrong too, the person they called out collects $50 from the catcher instead. Now everyone is careful.</p>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn (catcher)</span><span class="m-val">$100 per correct catch + correct pronunciation</span></div>
+      <div class="money-lose"><span class="m-label">Lose (speaker)</span><span class="m-val">$100 when caught · $50 back if catcher also gets it wrong</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>This game makes the whole room the teacher without any one person doing the teaching. Students start listening to each other with genuine attention. That's the whole point.</p></div>
+  </div>
+
+  <!-- ACCENT IMITATION -->
+  <div class="game-card cat-language" id="accent">
+    <div class="game-top">
+      <div class="game-icon-block">🎤</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-language">Language · Pronunciation</span>
+        <div class="game-name">Accent Imitation</div>
+        <div class="game-tagline">Exaggerate it. Perform it. The mouth is still doing the work.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">Whole room or teams</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">10–15 min</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">Phrase cards</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Active</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">Why Exaggeration Works</span>
+      <p>When you're performing an accent rather than attempting one, you're in character — not on trial. The self-conscious learner who won't risk mispronouncing a word will happily butcher it theatrically. The muscle memory doesn't care. The mouth is still doing the work.</p>
+      <span class="game-section-label">Round 1 — Facilitator Models</span>
+      <p>Facilitator says a phrase in an exaggerated American accent. Room repeats — as exaggerated as possible. "I heeear you." "Oh, that's so interesting." "I'm literally obsessed with this."</p>
+      <span class="game-section-label">Round 2 — Competition</span>
+      <p>Facilitator gives a phrase. Each student performs it in their best American accent. Room votes by applause. Top 3 performances each earn $100. The sillier the better.</p>
+      <span class="game-section-label">Round 3 — Speed Round</span>
+      <p>Rapid fire. Facilitator calls a word. Students say it with American vowels as fast as possible. First one to nail the stress pattern earns $50.</p>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">$100 for top-voted performance · $50 for speed round wins</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">Nothing — this is a performance, not a test</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>Never correct during Accent Imitation — only celebrate. The game creates a safe exaggeration zone. Save technical correction for other activities. Here, commitment matters more than accuracy.</p></div>
+  </div>
+
+  <!-- SONG CHALLENGE -->
+  <div class="game-card cat-language" id="song">
+    <div class="game-top">
+      <div class="game-icon-block">🎵</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-language">Language · Listening</span>
+        <div class="game-name">Song Challenge</div>
+        <div class="game-tagline">Figure out what the song actually says — and what it means.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Teams</span><span class="s-val">2–4 teams</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">15–20 min</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">Speaker, paper, pens</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Active</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">Why Music Works</span>
+      <p>Music activates a completely different attentional register than a worksheet. The brain decoding lyrics is doing intensive phonological work without the anxiety that formal listening exercises trigger.</p>
+      <span class="game-section-label">Round 1 — Listen & Write</span>
+      <p>Play 30–60 seconds of a song (pop, country, R&amp;B — something with clear lyrics). Teams write down every word they catch. Play twice.</p>
+      <span class="game-section-label">Round 2 — Fill the Gaps</span>
+      <p>Facilitator writes the partial lyrics on the board with blanks. Teams race to fill them in correctly.</p>
+      <span class="game-section-label">Round 3 — What Does It Mean?</span>
+      <p>Best part: teams explain what the song is really saying — not just translating words, but the cultural meaning, the slang, the idioms. Earn points for depth of explanation, not just accuracy.</p>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">$50 per correct lyric · $200 for best cultural explanation (facilitator votes)</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">Wager amount if team's explanation is voted worst</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>Choose songs with idioms or expressions from recent sessions. Connect the song to the lesson topic when possible. Students will look up that song at home — that's extra listening practice you didn't have to assign.</p></div>
+  </div>
+
+  <!-- ONE WORD STORY -->
+  <div class="game-card cat-language" id="one-word">
+    <div class="game-top">
+      <div class="game-icon-block">📖</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-language">Language · Group</span>
+        <div class="game-name">One Word Story</div>
+        <div class="game-tagline">Build a story one word at a time. Commit. It will be absurd. That's correct.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">6–15</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">8–12 min</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">None</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Light</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">How It Works</span>
+      <p>Sit or stand in a circle. One person says one word. Next person adds one word. The story builds. No one knows where it's going. Commit to the direction it takes — that's the rule.</p>
+      <span class="game-section-label">Grammar Variation</span>
+      <p>Whenever someone must say A, AN, or THE — they must pause, say the article clearly, and the group votes thumbs up or down. Correct = earn $50. Wrong = lose $50. The story continues either way.</p>
+      <span class="game-section-label">Vocabulary Variation</span>
+      <p>Each person must work one of tonight's vocabulary words into their word contribution. If you land on your turn and there's no way to use a vocab word — pay $50 and pass to the next person.</p>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">$50 per correct article or vocab word · $100 if your word gets the biggest laugh (group vote)</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">$50 for wrong article or breaking story coherence entirely</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>The story gets weird fast. That's perfect. The weirder it gets, the more invested everyone is. The key facilitation rule: never "fix" the story's direction. Whatever comes out, it's correct.</p></div>
+  </div>
+
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- IMPROV GAMES -->
+<!-- ════════════════════════════════════════ -->
+<div class="cat-header cat-improv">
+  <span class="cat-label">Improv Games</span>
+  <h2>Improv Games</h2>
+  <p>Mistake = contribution. These games rewire the anxiety response that blocks second-language speaking. When you're performing, you're not scared.</p>
+</div>
+
+<div class="games-grid">
+
+  <!-- YES AND -->
+  <div class="game-card cat-improv" id="yes-and">
+    <div class="game-top">
+      <div class="game-icon-block">🎪</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-improv">Improv · Warmup</span>
+        <div class="game-name">Yes, And</div>
+        <div class="game-tagline">Accept everything. Build on it. There are no wrong answers.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">Pairs or whole room</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">5–10 min</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">None</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Light</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">The One Rule</span>
+      <p>Whatever your partner says — accept it and build on it. Start your response with "Yes, and..." You can stop saying the words "yes, and" eventually, but the spirit must stay.</p>
+      <span class="game-section-label">How It Works</span>
+      <p>Partners have a 2-minute scene. One starts with a statement. The other accepts and adds. The scene goes wherever it goes. Facilitator calls time and pairs share their weirdest moment with the room.</p>
+      <span class="game-section-label">Why It Works for ESL</span>
+      <p>The rule removes the fear of being wrong because there IS no wrong. Your partner's job is to make you look good — and yours is to make them look good. Self-consciousness drops when the focus moves outward.</p>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">$100 for the pair voted funniest scene · $50 for using a vocab word in the scene</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">$50 for saying "No" or blocking your partner's reality</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>Run this before any activity that requires risk-taking. It primes the room to accept and build instead of judge and correct. Even 5 minutes of Yes, And changes the room's emotional temperature.</p></div>
+  </div>
+
+  <!-- FREEZE TAG -->
+  <div class="game-card cat-improv" id="freeze-tag">
+    <div class="game-top">
+      <div class="game-icon-block">🧊</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-improv">Improv · Energy</span>
+        <div class="game-name">Freeze Tag</div>
+        <div class="game-tagline">Tap in. Take the position. Start a completely new scene.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">2 active + whole room</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">10–15 min</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">Open floor space</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Active</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">How It Works</span>
+      <ol>
+        <li>Two people start a scene — any scene. They move around, talk, react.</li>
+        <li>At any moment, anyone in the room can shout "FREEZE!"</li>
+        <li>The two performers freeze in whatever position they're in.</li>
+        <li>The person who called freeze taps out ONE of the performers, takes their exact physical position, and starts a completely new scene — inspired by that body position.</li>
+        <li>Repeat. Fast. Keep it moving.</li>
+      </ol>
+      <span class="game-section-label">Language Variation</span>
+      <p>The new scene must incorporate one of tonight's vocabulary words in the first 3 sentences. If it doesn't, the room can call "FREEZE FINE" and the player pays $50 before continuing.</p>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">$100 for naturally using a vocab word in a new scene · $50 for audience vote on best tap-in</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">$50 for Freeze Fine (missing vocab requirement in language variation)</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>The physical position is the gift. Starting from someone else's frozen body forces creative thinking that breaks language anxiety better than any prompt. The room laughs immediately — that's the whole setup.</p></div>
+  </div>
+
+  <!-- SKITS -->
+  <div class="game-card cat-improv" id="skits">
+    <div class="game-top">
+      <div class="game-icon-block">🎭</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge cat-improv">Improv · Instructional</span>
+        <div class="game-name">Skits &amp; Role-Play</div>
+        <div class="game-tagline">You're not yourself struggling with English. You're a character who happens to speak English.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Groups</span><span class="s-val">Groups of 3</span></div>
+      <div class="game-stat"><span class="s-label">Prep</span><span class="s-val">3 min + 2 min performance</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">Scenario cards, role cards</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Setup + debrief</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">Setup</span>
+      <p>Groups of 3 receive a Scenario Card and three Role Cards. They have 3 minutes to plan, then 2 minutes to perform for the room.</p>
+      <span class="game-section-label">Sample Scenarios</span>
+      <ul>
+        <li>Restaurant: waiter, customer, manager (wrong order, complaint, resolution)</li>
+        <li>Job interview: interviewer, nervous candidate, distracted HR person</li>
+        <li>Doctor's office: doctor, patient, translator who keeps mistranslating</li>
+        <li>First day of work: new employee, overhelpful coworker, unhelpful coworker</li>
+        <li>Airport: traveler who missed their flight, gate agent, another traveler</li>
+      </ul>
+      <span class="game-section-label">The Secret Constraint</span>
+      <p>Each group also gets a secret constraint card: "Someone must be extremely confused the whole time" or "One person can only ask questions — never statements." The audience tries to guess the secret constraint after.</p>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">$50 per vocab word used · $200 if audience guesses secret constraint correctly (shared between group)</span></div>
+      <div class="money-lose"><span class="m-label">Lose</span><span class="m-val">$100 if group breaks character and can't recover</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>The planning conversation IS the learning. Three people huddled together figuring out who's going to say what — that's negotiation, vocabulary activation, and collaborative syntax happening before the performance even starts.</p></div>
+  </div>
+
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- END OF NIGHT -->
+<!-- ════════════════════════════════════════ -->
+<div class="cat-header cat-end">
+  <span class="cat-label" style="background:var(--dark);">End of Night</span>
+  <h2>End of Night</h2>
+  <p>The finale. The whole night has been building toward this. Biggest energy, biggest payout, everybody watching.</p>
+</div>
+
+<div class="games-grid">
+
+  <!-- BOARDWALK BATTLE -->
+  <div class="game-card cat-end" id="boardwalk">
+    <div class="game-top">
+      <div class="game-icon-block">🏆</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge" style="background:var(--dark);">End of Night · Final</span>
+        <div class="game-name">Boardwalk Battle</div>
+        <div class="game-tagline">Top two earners. One challenge. Crowd decides.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">Top 2 earners</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">5–8 min</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">Challenge card deck</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Host</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">How It Works</span>
+      <ol>
+        <li>Count Speak Easy Dollars. Two highest earners are announced and come to the front.</li>
+        <li>One Boardwalk Challenge Card is drawn live. Both players see it at the same time.</li>
+        <li>Both compete. The crowd votes by applause — or holds up dollar amounts they'd "pay" to watch it again.</li>
+        <li>Winner takes the Battle Prize. Loser takes a consolation amount (always leave with dignity).</li>
+      </ol>
+      <span class="game-section-label">Sample Boardwalk Challenges</span>
+      <ul>
+        <li><em>Debate: "Is working hard more important than working smart?" — 2 minutes each, no prep.</em></li>
+        <li><em>Story: Tell a 90-second story using 5 random words drawn from the vocab pile.</em></li>
+        <li><em>Impression: Both do their best American news anchor voice reading tonight's lesson summary.</em></li>
+        <li><em>Defense: Each must defend something absurd as if their life depends on it. Topic drawn randomly.</em></li>
+      </ul>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Winner Earns</span><span class="m-val">$500 + crowd's Free Parking pot contribution</span></div>
+      <div class="money-lose"><span class="m-label">Runner-Up Gets</span><span class="m-val">$200 — always. No one leaves the Battle empty.</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>The runner-up consolation is important. Everyone in the room is watching how you treat the person who came in second. That sets the tone for whether people want to compete next week.</p></div>
+  </div>
+
+  <!-- FREE PARKING -->
+  <div class="game-card cat-end" id="free-parking">
+    <div class="game-top">
+      <div class="game-icon-block">🅿️</div>
+      <div class="game-title-block">
+        <span class="game-cat-badge" style="background:var(--dark);">End of Night · Jackpot</span>
+        <div class="game-name">Free Parking Payout</div>
+        <div class="game-tagline">All night, the pot grew. One final game. Someone takes it all.</div>
+      </div>
+    </div>
+    <div class="game-stats">
+      <div class="game-stat"><span class="s-label">Players</span><span class="s-val">Everyone eligible</span></div>
+      <div class="game-stat"><span class="s-label">Duration</span><span class="s-val">3–5 min</span></div>
+      <div class="game-stat"><span class="s-label">Materials</span><span class="s-val">The pot (all night's fines)</span></div>
+      <div class="game-stat"><span class="s-label">Facilitator</span><span class="s-val">Host</span></div>
+    </div>
+    <div class="game-body">
+      <span class="game-section-label">The Pot</span>
+      <p>The Free Parking pot collects every fine, tax, and penalty from every game all night. The facilitator places it visibly in the center of the room so it grows publicly. This is the motivating force behind the Luxury Tax Bounty and Word Chain fines.</p>
+      <span class="game-section-label">The Final Game (Payout Round)</span>
+      <p>After Boardwalk Battle, the pot goes to a final quick game open to everyone. Facilitator chooses from:</p>
+      <ul>
+        <li>Lightning round: first to correctly answer 3 vocabulary questions</li>
+        <li>Pronunciation sprint: say tonight's 5 hardest words correctly, in order, fastest</li>
+        <li>Random draw: anyone who used all 5 vocab words tonight enters a hat draw</li>
+        <li>Community vote: who contributed most to the room tonight? Facilitator collects nominations, room votes</li>
+      </ul>
+    </div>
+    <div class="money-bar">
+      <div class="money-earn"><span class="m-label">Earn</span><span class="m-val">The entire Free Parking pot — everything that accumulated all night</span></div>
+      <div class="money-lose"><span class="m-label">Note</span><span class="m-val">Pot never goes to the facilitator. Ever. The players own the money.</span></div>
+    </div>
+    <div class="tip-bar"><span class="tip-icon">💡</span><p>Announce the pot total at the halfway point of the night. Watching it grow in real time changes behavior — people suddenly become very interested in catching pronunciation mistakes and completing Community Chest challenges.</p></div>
+  </div>
+
+</div>
+
+<div style="height:3rem;"></div>
+<div class="rainbow"></div>
+<footer style="background:var(--dark);color:rgba(255,255,255,0.4);text-align:center;padding:2.5rem 2rem;font-size:0.85rem;">
+  <p style="font-family:'Oswald',sans-serif;font-size:1rem;color:#fff;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;">SPEAK EASY COLUMBIA</p>
+  <p><a href="tel:8038816626" style="color:var(--yellow);text-decoration:none;">803.881.6626</a> &nbsp;·&nbsp; <a href="mailto:speak.easy.columbia@gmail.com" style="color:var(--yellow);text-decoration:none;">speak.easy.columbia@gmail.com</a></p>
+  <p style="margin-top:0.75rem;font-size:0.75rem;"><a href="index.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Main Site</a> &nbsp;·&nbsp; <a href="curriculum.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Curriculum</a> &nbsp;·&nbsp; <a href="#top" style="color:rgba(255,255,255,0.3);text-decoration:none;">Back to Top</a></p>
+</footer>
+
+</body>
+</html>
