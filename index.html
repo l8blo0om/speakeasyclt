@@ -298,6 +298,17 @@
     }
     .welcome-card .enter-btn:hover { background: #FAF4E1; border-color: #FAF4E1; }
 
+  
+    /* ── SPOTIFY EMBED (Latin album) ── */
+    .spotify-band {
+      background: #0d0d0d;
+      padding: 2.25rem 1.5rem 2.5rem;
+      border-top: 2px solid var(--gold);
+    }
+    .spotify-band-inner { max-width: 560px; margin: 0 auto; text-align: center; }
+    .spotify-band .cap { font-family: 'Oswald',sans-serif; font-size: 0.72rem; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 0.85rem; font-weight: 700; }
+    .spotify-band iframe { width: 100%; height: 80px; border: 0; border-radius: 12px; display: block; background: #000; }
+
   </style>
 </head>
 <body>
@@ -703,6 +714,19 @@
 </div>
 
 <!-- FOOTER -->
+
+<!-- SPOTIFY EMBED (Latin album) -->
+<div class="spotify-band">
+  <div class="spotify-band-inner">
+    <div class="cap">Música mientras aprendes · un álbum latino de la Dra. Nicole Bishop</div>
+    <iframe
+      src="https://open.spotify.com/embed/album/2Uok5TaZFlOhmauMOCAk55?utm_source=generator&theme=0"
+      allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+      title="Dr. Nicole Bishop — Latin album on Spotify"></iframe>
+  </div>
+</div>
+
 <footer>
   <div class="footer-logo-text">Speak <span>Easy</span> Charlotte</div>
   <ul class="footer-links">
