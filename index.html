@@ -15,6 +15,11 @@
   <meta name="description" content="ESL happy hour in Charlotte, NC. Wednesdays & Fridays 6–8pm. Games, Monopoly money, real English — over drinks. First night only $10."/>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Special+Elite&display=swap" rel="stylesheet"/>
   <style>
+    @property --hue { syntax: '<number>'; inherits: true; initial-value: 0; }
+    :root.hue-anim { --hue: 0; }
+    @keyframes huecycle { to { --hue: 360; } }
+    html { animation: huecycle 22s linear infinite; }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg:       #0b1a0d;
@@ -70,7 +75,7 @@
     .hero-content { position: relative; z-index: 2; max-width: 760px; margin: 0 auto; text-align: center; padding: 2rem; }
     .hero-eyebrow { font-family: 'Special Elite', cursive; font-size: clamp(0.7rem, 1.5vw, 0.9rem); color: var(--gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; }
     .hero-title { font-family: 'Oswald', sans-serif; font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; line-height: 0.95; margin-bottom: 1.25rem; color: var(--text); }
-    .hero-title .gold { color: var(--gold); }
+    .hero-title .gold { color: hsl(var(--hue), 85%, 60%); }
     .hero-title .red { color: var(--red); }
     .hero-divider { width: 80px; height: 3px; background: var(--gold); margin: 0 auto 1.25rem; }
     .hero-sub { font-family: 'Special Elite', cursive; font-size: clamp(0.85rem, 2vw, 1.1rem); color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; }
