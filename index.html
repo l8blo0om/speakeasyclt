@@ -343,43 +343,6 @@
 /* accent text (eyebrows, highlights) */
 .accent{color:hsl(var(--hue) 90% 62%)}
 
-    /* ── SODACITYVENDING-STYLE brand rhythm: same coaster in 5 neon colors ── */
-    .coaster-neon {
-      display: inline-block;
-      width: 96px; height: 96px;
-      background-color: currentColor;
-      -webkit-mask-image: url('logo-mask.png');
-              mask-image: url('logo-mask.png');
-      -webkit-mask-size: contain; mask-size: contain;
-      -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-      -webkit-mask-position: center; mask-position: center;
-      transition: transform 0.25s;
-    }
-    .coaster-neon:hover { transform: scale(1.08) rotate(-3deg); }
-    .neon-pink   { color: #ff4d9d; }
-    .neon-yellow { color: #ffd23f; }
-    .neon-green  { color: #3ff28a; }
-    .neon-orange { color: #ff7a2b; }
-    .neon-blue   { color: #4de1ff; }
-
-    .brand-rhythm {
-      display: flex; gap: 2.2rem; justify-content: center; align-items: center;
-      padding: 3rem 1rem; flex-wrap: wrap;
-      background: rgba(0,0,0,0.02);
-      border-top: 1px solid rgba(0,0,0,0.08);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-    }
-    .brand-rhythm .rhythm-label {
-      font-family: 'Oswald',sans-serif; font-size: 0.7rem;
-      letter-spacing: 5px; text-transform: uppercase;
-      color: rgba(0,0,0,0.35); width: 100%; text-align: center;
-      margin-bottom: 0.5rem;
-    }
-    @media (max-width: 600px) {
-      .coaster-neon { width: 68px; height: 68px; }
-      .brand-rhythm { gap: 1rem; padding: 2rem 1rem; }
-    }
-
   
     /* ── MONOPOLY TITLE DEED SPLASH ── */
     .welcome-splash {
