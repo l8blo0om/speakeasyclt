@@ -334,7 +334,49 @@
     .visit-counter #vc { color: rgba(255,255,255,0.65); font-weight: 700; }
     .visit-counter #vc.empty { opacity: 0.5; }
 
-  </style>
+  
+    /* ── HUE-CYCLING UTILITIES (brighter — pops on night-green bg) ── */
+    .btn-glow {
+      background: #0a0a0a; color: #fff; border: none;
+      padding: 1.05rem 2.2rem; cursor: pointer;
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 1rem; letter-spacing: 2.5px; text-transform: uppercase;
+      text-decoration: none; display: inline-block;
+      box-shadow: 0 0 0 1.5px hsl(var(--hue) 88% 62%), 0 0 22px hsl(var(--hue) 88% 62% / .3);
+      animation: breathe 3s ease-in-out infinite;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-glow:hover { background: hsl(var(--hue) 88% 62%); color: #0a0a0a; }
+    @keyframes breathe {
+      0%,100% { box-shadow: 0 0 0 1.5px hsl(var(--hue) 88% 62%), 0 0 18px hsl(var(--hue) 88% 62% / .25); }
+      50%     { box-shadow: 0 0 0 1.5px hsl(var(--hue) 88% 62%), 0 0 32px hsl(var(--hue) 88% 62% / .5); }
+    }
+    .glow-line {
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(90deg, hsl(var(--hue) 88% 62%), hsl(calc(var(--hue) + 60) 88% 62%), hsl(var(--hue) 88% 62%)) 1;
+    }
+    .accent { color: hsl(var(--hue) 88% 64%); }
+
+  
+/* glowing outlined button that breathes */
+.btn-glow{
+  background:#0a0a0a;color:#fff;border:none;padding:15px 28px;cursor:pointer;
+  box-shadow:0 0 0 1.5px hsl(var(--hue) 90% 60%), 0 0 22px hsl(var(--hue) 90% 58% / .3);
+  animation:breathe 3s ease-in-out infinite;
+}
+.btn-glow:hover{background:hsl(var(--hue) 90% 58%);color:#0a0a0a}
+@keyframes breathe{
+  0%,100%{box-shadow:0 0 0 1.5px hsl(var(--hue) 90% 60%), 0 0 18px hsl(var(--hue) 90% 58% / .25)}
+  50%   {box-shadow:0 0 0 1.5px hsl(var(--hue) 90% 60%), 0 0 32px hsl(var(--hue) 90% 58% / .5)}
+}
+
+/* glowing hairline (like the header border) */
+.glow-line{border-bottom:2px solid transparent;
+  border-image:linear-gradient(90deg,hsl(var(--hue) 90% 60%),hsl(calc(var(--hue) + 60) 90% 60%),hsl(var(--hue) 90% 60%)) 1}
+
+/* accent text (eyebrows, highlights) */
+.accent{color:hsl(var(--hue) 90% 62%)}
+</style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -487,7 +529,7 @@
       <span data-i18n="hero_title_2">Drinks.</span><br/>
       <span class="red" data-i18n="hero_title_3">Game Night.</span>
     </div>
-    <div class="hero-divider"></div>
+    <div class="hero-divider glow-line"></div>
     <div class="hero-sub" data-i18n="hero_sub">ESL &amp; American Accent Training · Happy Hour Edition</div>
     <p class="hero-desc" data-i18n="hero_desc">Two nights a week at two of Charlotte's best bars. Game money. Conversation games. Pictionary. Acting games. Real English — over drinks.</p>
     <div class="hero-btns">
