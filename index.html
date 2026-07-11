@@ -273,40 +273,6 @@
     }
 
   
-    /* ── WELCOME SPLASH (no music push) ── */
-    .welcome-splash {
-      position: fixed; inset: 0; z-index: 9999;
-      background: rgba(11,11,11,0.85);
-      display: none; opacity: 0;
-      align-items: center; justify-content: center;
-      transition: opacity 0.35s ease;
-      backdrop-filter: blur(6px);
-      padding: 1rem;
-    }
-    .welcome-card {
-      background: #1A1A1A;
-      border: 2px solid var(--gold);
-      padding: 2.4rem 2rem 1.9rem;
-      max-width: 400px; width: 100%;
-      text-align: center;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
-      animation: wIn 0.35s ease;
-    }
-    @keyframes wIn { from { transform: scale(0.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-    .welcome-card img { width: 96px; height: 96px; border-radius: 6px; margin-bottom: 1.2rem; object-fit: cover; }
-    .welcome-card .pre { font-family: 'Oswald',sans-serif; font-size: 0.72rem; color: var(--gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 0.55rem; font-weight: 700; }
-    .welcome-card .site-name { font-family: 'Oswald',sans-serif; font-size: 1.55rem; color: #FAF4E1; letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.15; margin-bottom: 1.5rem; font-weight: 700; }
-    .welcome-card .enter-btn {
-      background: var(--gold); color: #1A1A1A;
-      font-family: 'Oswald',sans-serif; font-weight: 700;
-      font-size: 0.95rem; letter-spacing: 4px; text-transform: uppercase;
-      padding: 0.8rem 2.4rem; border: 2px solid var(--gold);
-      cursor: pointer; transition: all 0.15s; border-radius: 3px;
-      width: 100%;
-    }
-    .welcome-card .enter-btn:hover { background: #FAF4E1; border-color: #FAF4E1; }
-
-  
     /* ── SPOTIFY EMBED (Latin album) ── */
     .spotify-band {
       background: #0d0d0d;
@@ -413,6 +379,109 @@
       .coaster-neon { width: 68px; height: 68px; }
       .brand-rhythm { gap: 1rem; padding: 2rem 1rem; }
     }
+
+  
+    /* ── MONOPOLY TITLE DEED SPLASH ── */
+    .welcome-splash {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(11,11,11,0.86);
+      display: none; opacity: 0;
+      align-items: center; justify-content: center;
+      transition: opacity 0.35s ease;
+      backdrop-filter: blur(6px);
+      padding: 1rem;
+      font-family: 'Oswald', sans-serif;
+    }
+    .welcome-card {
+      background: #FFFEF8;
+      border: 3px solid #1A1A1A;
+      padding: 0;
+      max-width: 380px; width: 100%;
+      text-align: center;
+      box-shadow: 12px 12px 0 rgba(0,0,0,0.35);
+      animation: deedIn 0.4s ease;
+      color: #1A1A1A;
+      position: relative;
+      overflow: hidden;
+    }
+    @keyframes deedIn { from { transform: scale(0.94) translateY(20px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .welcome-card .band {
+      background: #C9A84C;
+      color: #1A1A1A;
+      padding: 1.1rem 1rem 0.85rem;
+      border-bottom: 3px solid #1A1A1A;
+    }
+    .welcome-card .deed-chip {
+      display: inline-block;
+      background: #1A1A1A; color: #C9A84C;
+      font-size: 0.62rem; letter-spacing: 5px; font-weight: 700;
+      padding: 0.28rem 0.85rem;
+      margin-bottom: 0.65rem;
+    }
+    .welcome-card .site-name {
+      font-size: 1.4rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; line-height: 1.15;
+    }
+    .welcome-card .sub {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.7rem; letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+      opacity: 0.85;
+    }
+    .welcome-card .card-body {
+      padding: 1.5rem 1.75rem 1.35rem;
+    }
+    .welcome-card .welcome-line {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.72rem; letter-spacing: 3px;
+      color: #666; text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+    .welcome-card .tagline {
+      font-family: 'Special Elite', cursive;
+      font-size: 1rem; color: #1A1A1A;
+      font-style: italic; line-height: 1.35;
+      margin-bottom: 1.5rem;
+      padding: 0 0.4rem;
+    }
+    .welcome-card .meta-rows {
+      border-top: 2px solid #1A1A1A;
+      margin-bottom: 1.5rem;
+    }
+    .welcome-card .meta-row {
+      display: flex; justify-content: space-between;
+      padding: 0.5rem 0.4rem;
+      border-bottom: 1px dashed rgba(0,0,0,0.2);
+      font-size: 0.78rem;
+    }
+    .welcome-card .meta-row:last-child { border-bottom: 2px solid #1A1A1A; }
+    .welcome-card .meta-row .k {
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: #1A1A1A;
+    }
+    .welcome-card .meta-row .v {
+      font-family: 'Special Elite', cursive;
+      color: #333; letter-spacing: 1px; text-transform: uppercase;
+    }
+    .welcome-card .enter-btn {
+      background: #1A1A1A; color: #C9A84C;
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase;
+      padding: 0.85rem 2rem; border: 2px solid #1A1A1A;
+      cursor: pointer; transition: all 0.15s;
+      width: 100%;
+    }
+    .welcome-card .enter-btn:hover {
+      background: #C9A84C; color: #1A1A1A;
+    }
+    /* corner dashes reminiscent of monopoly card corners */
+    .welcome-card::before, .welcome-card::after {
+      content: ""; position: absolute; width: 22px; height: 22px;
+      border: 2px solid #1A1A1A;
+    }
+    .welcome-card::before { top: 6px; left: 6px; border-right: none; border-bottom: none; }
+    .welcome-card::after { bottom: 6px; right: 6px; border-left: none; border-top: none; }
 
   </style>
   <script type="application/ld+json">
@@ -1761,13 +1830,24 @@ function setLanguage(lang) {
 setLanguage('es');
 </script>
 
-<!-- WELCOME SPLASH -->
+<!-- MONOPOLY TITLE DEED SPLASH -->
 <div class="welcome-splash" id="welcomeSplash">
   <div class="welcome-card">
-    <img src="logo.jpg" alt="Speak Easy Charlotte"/>
-    <div class="pre">Bienvenido a</div>
-    <div class="site-name">Speak Easy Charlotte</div>
-    <button class="enter-btn" onclick="seEnter()">Entrar</button>
+    <div class="band">
+      <div class="deed-chip">TITLE DEED</div>
+      <div class="site-name">SPEAK EASY CHARLOTTE</div>
+      <div class="sub">The Charlotte · NC · Property</div>
+    </div>
+    <div class="card-body">
+      <div class="welcome-line">You have landed on</div>
+      <div class="tagline">Better than another night on the couch.</div>
+      <div class="meta-rows">
+        <div class="meta-row"><span class="k">NIGHTS</span><span class="v">Wed · Fri</span></div>
+        <div class="meta-row"><span class="k">TIME</span><span class="v">6 – 8 PM</span></div>
+        <div class="meta-row"><span class="k">FIRST</span><span class="v">FREE first night</span></div>
+      </div>
+      <button class="enter-btn" onclick="seEnter()">▸ PASS GO</button>
+    </div>
   </div>
 </div>
 <script>
@@ -1782,23 +1862,5 @@ setLanguage('es');
 })();
 </script>
 
-
-<script>
-(function(){
-  var el = document.getElementById('vc');
-  if (!el) return;
-  fetch('https://api.counterapi.dev/v1/speakeasy/speakeasy-charlotte/up')
-    .then(function(r){ return r.json(); })
-    .then(function(d){
-      var n = (d && (d.count != null ? d.count : d.up_count));
-      if (typeof n === 'number') {
-        el.textContent = n.toLocaleString();
-      } else {
-        el.classList.add('empty'); el.textContent = '—';
-      }
-    })
-    .catch(function(){ el.classList.add('empty'); el.textContent = '—'; });
-})();
-</script>
 </body>
 </html>
