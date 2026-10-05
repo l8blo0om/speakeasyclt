@@ -446,6 +446,36 @@
     .welcome-card::before { top: 6px; left: 6px; border-right: none; border-bottom: none; }
     .welcome-card::after { bottom: 6px; right: 6px; border-left: none; border-top: none; }
 
+  
+    /* ── SURVIVE → THRIVE TICKER ── */
+    .se-ticker {
+      background: var(--dark); overflow: hidden; white-space: nowrap;
+      border-bottom: 3px solid var(--gold); position: relative;
+    }
+    .se-ticker-track {
+      display: inline-flex; align-items: center; padding: 0.55rem 0;
+      animation: se-scroll 110s linear infinite; will-change: transform;
+    }
+    .se-ticker:hover .se-ticker-track,
+    .se-ticker:focus-within .se-ticker-track { animation-play-state: paused; }
+    .se-tick {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0 1.9rem; font-size: 0.78rem; letter-spacing: 0.6px;
+      color: rgba(250,244,225,0.88); font-weight: 600;
+    }
+    .se-tick .se-flag { font-size: 0.95rem; }
+    .se-tick b { color: var(--gold); font-weight: 800; letter-spacing: 1.2px; }
+    .se-tick::after {
+      content: '◆'; margin-left: 1.9rem; color: var(--gold);
+      opacity: 0.45; font-size: 0.6rem;
+    }
+    @keyframes se-scroll { from { transform: translateX(0); }
+                           to   { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) {
+      .se-ticker-track { animation: none; }
+      .se-ticker { white-space: normal; }
+    }
+    @media (max-width: 700px) { .se-tick { font-size: 0.72rem; padding: 0 1.3rem; } }
   </style>
   <script type="application/ld+json">
 {
@@ -560,6 +590,10 @@
 <body>
 
 <div class="board-strip"></div>
+
+<div class="se-ticker" role="marquee" aria-label="You already know enough English to survive. Now learn enough English to thrive.">
+  <div class="se-ticker-track"><span class="se-tick"><span class="se-flag">🇲🇽</span><span>Ya sabes suficiente inglés para sobrevivir. Ahora aprende suficiente inglés para <b>PROSPERAR</b></span></span><span class="se-tick"><span class="se-flag">🇧🇷</span><span>Você já sabe inglês suficiente para sobreviver. Agora aprenda inglês suficiente para <b>PROSPERAR</b></span></span><span class="se-tick"><span class="se-flag">🇭🇹</span><span>Ou deja konnen ase anglè pou ou siviv. Kounye a aprann ase anglè pou ou <b>PWOSPERE</b></span></span><span class="se-tick"><span class="se-flag">🇨🇳</span><span>你已经知道足够的英语来生存。现在学习足够的英语来<b>蓬勃发展</b></span></span><span class="se-tick"><span class="se-flag">🇰🇷</span><span>당신은 이미 생존할 만큼의 영어는 알고 있습니다. 지금은 <b>더 나아가기 위해</b></span></span><span class="se-tick"><span class="se-flag">🇮🇳</span><span>आप पहले से ही जीवित रहने के लिए पर्याप्त अंग्रेज़ी जानते हैं। अब <b>आगे बढ़ने के लिए</b></span></span><span class="se-tick"><span class="se-flag">🇻🇳</span><span>Bạn đã biết đủ tiếng Anh để tồn tại. Bây giờ hãy học đủ tiếng Anh để <b>PHÁT TRIỂN</b></span></span><span class="se-tick"><span class="se-flag">🇷🇺</span><span>Вы уже знаете достаточно английского, чтобы выжить. Теперь — чтобы <b>ПРОЦВЕТАТЬ</b></span></span><span class="se-tick"><span class="se-flag">🇺🇦</span><span>Ви вже знаєте достатньо англійської, щоб вижити. Тепер — щоб <b>РОЗВИВАТИСЬ</b></span></span><span class="se-tick"><span class="se-flag">🇫🇷</span><span>Vous connaissez déjà assez d'anglais pour survivre. Maintenant, assez pour <b>PROSPÉRER</b></span></span><span class="se-tick"><span class="se-flag">🇺🇸</span><span>You already know enough English to survive. Now learn enough English to <b>THRIVE</b></span></span><span class="se-tick"><span class="se-flag">🇲🇽</span><span>Ya sabes suficiente inglés para sobrevivir. Ahora aprende suficiente inglés para <b>PROSPERAR</b></span></span><span class="se-tick"><span class="se-flag">🇧🇷</span><span>Você já sabe inglês suficiente para sobreviver. Agora aprenda inglês suficiente para <b>PROSPERAR</b></span></span><span class="se-tick"><span class="se-flag">🇭🇹</span><span>Ou deja konnen ase anglè pou ou siviv. Kounye a aprann ase anglè pou ou <b>PWOSPERE</b></span></span><span class="se-tick"><span class="se-flag">🇨🇳</span><span>你已经知道足够的英语来生存。现在学习足够的英语来<b>蓬勃发展</b></span></span><span class="se-tick"><span class="se-flag">🇰🇷</span><span>당신은 이미 생존할 만큼의 영어는 알고 있습니다. 지금은 <b>더 나아가기 위해</b></span></span><span class="se-tick"><span class="se-flag">🇮🇳</span><span>आप पहले से ही जीवित रहने के लिए पर्याप्त अंग्रेज़ी जानते हैं। अब <b>आगे बढ़ने के लिए</b></span></span><span class="se-tick"><span class="se-flag">🇻🇳</span><span>Bạn đã biết đủ tiếng Anh để tồn tại. Bây giờ hãy học đủ tiếng Anh để <b>PHÁT TRIỂN</b></span></span><span class="se-tick"><span class="se-flag">🇷🇺</span><span>Вы уже знаете достаточно английского, чтобы выжить. Теперь — чтобы <b>ПРОЦВЕТАТЬ</b></span></span><span class="se-tick"><span class="se-flag">🇺🇦</span><span>Ви вже знаєте достатньо англійської, щоб вижити. Тепер — щоб <b>РОЗВИВАТИСЬ</b></span></span><span class="se-tick"><span class="se-flag">🇫🇷</span><span>Vous connaissez déjà assez d'anglais pour survivre. Maintenant, assez pour <b>PROSPÉRER</b></span></span><span class="se-tick"><span class="se-flag">🇺🇸</span><span>You already know enough English to survive. Now learn enough English to <b>THRIVE</b></span></span></div>
+</div>
 
 <!-- NAV -->
 <nav>
