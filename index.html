@@ -476,6 +476,16 @@
       .se-ticker { white-space: normal; }
     }
     @media (max-width: 700px) { .se-tick { font-size: 0.72rem; padding: 0 1.3rem; } }
+  
+    .sibling-note {
+      margin-top: 1.5rem; font-family: 'Special Elite', cursive;
+      font-size: 0.82rem; letter-spacing: 1px; color: rgba(255,255,255,0.75);
+    }
+    .sibling-note a {
+      color: var(--gold); text-decoration: underline;
+      text-underline-offset: 4px; font-weight: 700;
+    }
+    .sibling-note a:hover { color: #fff; }
   </style>
   <script type="application/ld+json">
 {
@@ -641,6 +651,8 @@
       <a href="#tonight" class="btn-gold" data-i18n="hero_btn_tonight">See Tonight's Lineup</a>
       <a href="#pricing" class="btn-outline-gold" data-i18n="hero_btn_pricing">View Pricing</a>
     </div>
+    <div class="sibling-note" data-i18n="sibling_note">Prefer alcohol-free? → <a href="https://speakeasycolumbia.com" target="_blank" rel="noopener">Speak Easy Columbia</a></div>
+
   </div>
   <div class="hero-dice">🎲</div>
 </section>
@@ -1029,6 +1041,7 @@
 <script>
 const translations = {
   en: {
+    sibling_note: "Prefer alcohol-free? → <a href=\"https://speakeasycolumbia.com\" target=\"_blank\" rel=\"noopener\">Speak Easy Columbia</a>",
     nav_badge: "Happy Hour",
     nav_tonight: "Tonight",
     nav_games: "Games",
@@ -1185,6 +1198,7 @@ const translations = {
     footer_copy: "© 2026 Speak Easy. All rights reserved."
   },
   es: {
+    sibling_note: "¿Prefieres sin alcohol? → <a href=\"https://speakeasycolumbia.com\" target=\"_blank\" rel=\"noopener\">Speak Easy Columbia</a>",
     nav_badge: "Happy Hour",
     nav_tonight: "Esta Noche",
     nav_games: "Juegos",
@@ -1341,6 +1355,7 @@ const translations = {
     footer_copy: "© 2026 Speak Easy. Todos los derechos reservados."
   },
   hi: {
+    sibling_note: "शराब-मुक्त पसंद है? → <a href=\"https://speakeasycolumbia.com\" target=\"_blank\" rel=\"noopener\">Speak Easy Columbia</a>",
     nav_badge: "हैप्पी आवर",
     nav_tonight: "आज रात",
     nav_games: "खेल",
@@ -1497,6 +1512,7 @@ const translations = {
     footer_copy: "© 2026 Speak Easy. सर्वाधिकार सुरक्षित।"
   },
   zh: {
+    sibling_note: "想要无酒精版本？→ <a href=\"https://speakeasycolumbia.com\" target=\"_blank\" rel=\"noopener\">Speak Easy Columbia</a>",
     nav_badge: "欢乐时光",
     nav_tonight: "今晚",
     nav_games: "游戏",
@@ -1653,6 +1669,7 @@ const translations = {
     footer_copy: "© 2026 Speak Easy. 保留所有权利。"
   },
   fr: {
+    sibling_note: "Vous préférez sans alcool ? → <a href=\"https://speakeasycolumbia.com\" target=\"_blank\" rel=\"noopener\">Speak Easy Columbia</a>",
     nav_badge: "Happy Hour",
     nav_tonight: "Ce Soir",
     nav_games: "Jeux",
