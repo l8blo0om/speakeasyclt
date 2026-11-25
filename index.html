@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>English Conversation &amp; Game Night in Charlotte, NC | Speak Easy Charlotte</title>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Speak Easy Charlotte — English. Drinks. Game Night."/>
-  <meta property="og:description" content="ESL happy hour in Charlotte, NC. Wednesdays 6–8pm. Games, Speak Easy Dollars, real English — over drinks. First night free."/>
+  <meta property="og:title" content="Speak Easy Charlotte — English. Games. BYOB."/>
+  <meta property="og:description" content="BYOB English game night in Charlotte, NC. Wednesdays 6–8pm. Games, play-money Speak Easy Dollars, real English. First visit $5."/>
   <meta property="og:image" content="./logo.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Speak Easy Charlotte — English. Drinks. Game Night."/>
-  <meta name="twitter:description" content="ESL happy hour in Charlotte, NC. Wednesdays 6–8pm. Games, Speak Easy Dollars, real English — over drinks. First night free."/>
+  <meta name="twitter:title" content="Speak Easy Charlotte — English. Games. BYOB."/>
+  <meta name="twitter:description" content="BYOB English game night in Charlotte, NC. Wednesdays 6–8pm. Games, play-money Speak Easy Dollars, real English. First visit $5."/>
   <meta name="twitter:image" content="./logo.jpg"/>
     <!-- Add codes from Google Search Console + Bing Webmaster Tools -->
   <meta name="google-site-verification" content=""/>
   <meta name="msvalidate.01" content=""/>
-  <meta name="description" content="ESL happy hour in Charlotte, NC. Wednesdays 6–8pm. Games, Speak Easy Dollars, real English — over drinks. First night free."/>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Special+Elite&display=swap" rel="stylesheet"/>
+  <meta name="description" content="BYOB English game night in Charlotte, NC. Wednesdays 6–8pm. Games, play-money Speak Easy Dollars, real English. First visit $5."/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     @property --hue { syntax: '<number>'; inherits: true; initial-value: 0; }
     :root.hue-anim { --hue: 0; }
@@ -40,6 +40,26 @@
       --text:     #f0ead8;
       --text-dim: rgba(240,234,216,0.65);
       --border:   rgba(201,168,76,0.3);
+    }
+
+    /* ─── WHAT THIS IS ─── */
+    .explainer { background: var(--surface); padding: 4.5rem 2rem; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); }
+    .ex-inner { max-width: 1000px; margin: 0 auto; }
+    .ex-eyebrow { font-family:'Oswald', sans-serif; font-size:0.78rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:0.9rem; }
+    .ex-inner h2 { font-family:'Oswald',sans-serif; font-size:clamp(1.6rem,3.8vw,2.4rem); font-weight:700; text-transform:uppercase; letter-spacing:1.5px; line-height:1.15; color:var(--cream); margin-bottom:1.15rem; }
+    .ex-lead { font-size:1.07rem; line-height:1.78; color:var(--text); max-width:700px; margin-bottom:2.6rem; }
+    .ex-cols { display:grid; grid-template-columns:repeat(3,1fr); gap:1.9rem; margin-bottom:2.6rem; }
+    .ex-col { background:var(--surface2); border:1px solid var(--border); border-top:4px solid var(--gold); padding:1.5rem 1.35rem; }
+    .ex-col:nth-child(2) { border-top-color:var(--red); }
+    .ex-col:nth-child(3) { border-top-color:var(--orange); }
+    .ex-col h3 { font-family:'Oswald',sans-serif; font-size:0.88rem; letter-spacing:3px; text-transform:uppercase; color:var(--yellow); margin-bottom:0.7rem; }
+    .ex-col p { font-size:0.95rem; line-height:1.7; color:var(--text-dim); }
+    .ex-facts { display:flex; flex-wrap:wrap; gap:0.6rem; }
+    .ex-facts span { background:var(--bg); border:1px solid var(--border); padding:0.55rem 0.95rem; font-size:0.84rem; color:var(--text); line-height:1.4; }
+    .ex-facts strong { color:var(--gold); }
+    @media (max-width:880px) {
+      .ex-cols { grid-template-columns:1fr; gap:1.35rem; }
+      .explainer { padding:3rem 1.25rem; }
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--text); }
@@ -67,21 +87,26 @@
     .nav-cta:hover { background: #aa1e21 !important; }
 
     /* ── HERO ── */
-    .hero { position: relative; min-height: 92vh; display: flex; align-items: center; overflow: hidden; }
+    .hero { position: relative; min-height: 58vh; display: flex; align-items: center; overflow: hidden; padding: 3rem 0; }
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1575037614876-c38a4d44f5b8?w=1400&q=80');
-      background-size: cover; background-position: center 40%;
-      filter: brightness(0.22) saturate(0.6);
+      background:
+        radial-gradient(ellipse at 50% 18%, #1d3357 0%, #141f36 48%, #0c1324 100%);
     }
+    /* hero banner artwork — full-width band */
+    .hero-banner {
+      background:#0c1324; padding:0; line-height:0;
+      border-bottom:4px solid var(--gold); position:relative; z-index:3;
+    }
+    .hero-banner img { width:100%; height:auto; display:block; max-width:1600px; margin:0 auto; }
     .hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 30%, rgba(6,13,7,0.7) 100%); }
-    .hero-content { position: relative; z-index: 2; max-width: 760px; margin: 0 auto; text-align: center; padding: 2rem; }
-    .hero-eyebrow { font-family: 'Special Elite', cursive; font-size: clamp(0.7rem, 1.5vw, 0.9rem); color: var(--gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; }
+    .hero-content { position: relative; z-index: 2; width: 100%; max-width: 760px; margin: 0 auto; text-align: center; padding: 2rem; }
+    .hero-eyebrow { font-family: 'Oswald', sans-serif; font-size: clamp(0.7rem, 1.5vw, 0.9rem); color: var(--gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; }
     .hero-title { font-family: 'Oswald', sans-serif; font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; line-height: 0.95; margin-bottom: 1.25rem; color: var(--text); }
     .hero-title .gold { color: hsl(var(--hue), 85%, 60%); }
     .hero-title .red { color: var(--red); }
     .hero-divider { width: 80px; height: 3px; background: var(--gold); margin: 0 auto 1.25rem; }
-    .hero-sub { font-family: 'Special Elite', cursive; font-size: clamp(0.85rem, 2vw, 1.1rem); color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-sub { font-family: 'Oswald', sans-serif; font-size: clamp(0.85rem, 2vw, 1.1rem); color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; }
     .hero-desc { font-size: 1rem; line-height: 1.8; color: rgba(240,234,216,0.8); margin-bottom: 2.5rem; max-width: 520px; margin-left: auto; margin-right: auto; }
     .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
     .btn-gold { background: var(--gold); color: var(--dark); font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; padding: 0.9rem 2.25rem; border: 3px solid var(--gold); text-decoration: none; display: inline-block; transition: all 0.2s; }
@@ -183,7 +208,7 @@
     .venue-neighborhood { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.4rem; }
     .venue-arrow { font-size: 2.5rem; color: var(--gold); opacity: 0.5; }
     .rotation-note { text-align: center; margin-top: 2.5rem; padding: 1.25rem; background: var(--surface2); border: 1px solid var(--border); max-width: 500px; margin-left: auto; margin-right: auto; }
-    .rotation-note p { font-family: 'Special Elite', cursive; font-size: 0.9rem; color: var(--text-dim); letter-spacing: 1px; line-height: 1.7; }
+    .rotation-note p { font-family: 'Oswald', sans-serif; font-size: 0.9rem; color: var(--text-dim); letter-spacing: 1px; line-height: 1.7; }
     .rotation-note strong { color: var(--gold); }
 
     /* ── PRICING ── */
@@ -248,7 +273,7 @@
 
     /* ── QUOTE BANNER ── */
     .quote-banner { background: var(--gold); border-top: 5px solid var(--dark); border-bottom: 5px solid var(--dark); padding: 2.25rem 2rem; text-align: center; }
-    .quote-banner blockquote { font-family: 'Special Elite', cursive; font-size: clamp(1rem, 2.5vw, 1.4rem); color: var(--dark); letter-spacing: 1px; line-height: 1.6; max-width: 600px; margin: 0 auto; }
+    .quote-banner blockquote { font-family: 'Oswald', sans-serif; font-size: clamp(1rem, 2.5vw, 1.4rem); color: var(--dark); letter-spacing: 1px; line-height: 1.6; max-width: 600px; margin: 0 auto; }
     .quote-banner cite { display: block; margin-top: 0.75rem; font-family: 'Oswald', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(0,0,0,0.5); font-style: normal; }
 
     /* ── LANGUAGE SWITCHER ── */
@@ -386,7 +411,7 @@
       text-transform: uppercase; line-height: 1.15;
     }
     .welcome-card .sub {
-      font-family: 'Special Elite', cursive;
+      font-family: 'Oswald', sans-serif;
       font-size: 0.7rem; letter-spacing: 2.5px;
       text-transform: uppercase;
       margin-top: 0.4rem;
@@ -396,13 +421,13 @@
       padding: 1.5rem 1.75rem 1.35rem;
     }
     .welcome-card .welcome-line {
-      font-family: 'Special Elite', cursive;
+      font-family: 'Oswald', sans-serif;
       font-size: 0.72rem; letter-spacing: 3px;
       color: #666; text-transform: uppercase;
       margin-bottom: 0.9rem;
     }
     .welcome-card .tagline {
-      font-family: 'Special Elite', cursive;
+      font-family: 'Oswald', sans-serif;
       font-size: 1rem; color: #1A1A1A;
       font-style: italic; line-height: 1.35;
       margin-bottom: 1.5rem;
@@ -424,7 +449,7 @@
       color: #1A1A1A;
     }
     .welcome-card .meta-row .v {
-      font-family: 'Special Elite', cursive;
+      font-family: 'Oswald', sans-serif;
       color: #333; letter-spacing: 1px; text-transform: uppercase;
     }
     .welcome-card .enter-btn {
@@ -478,7 +503,7 @@
     @media (max-width: 700px) { .se-tick { font-size: 0.72rem; padding: 0 1.3rem; } }
   
     .sibling-note {
-      margin-top: 1.5rem; font-family: 'Special Elite', cursive;
+      margin-top: 1.5rem; font-family: 'Oswald', sans-serif;
       font-size: 0.82rem; letter-spacing: 1px; color: rgba(255,255,255,0.75);
     }
     .sibling-note a {
@@ -567,15 +592,17 @@
       ],
       "@id": "https://speakeasyclt.com/#business",
       "name": "Speak Easy Charlotte",
-      "description": "Happy-hour English program at rotating Charlotte, NC bars. Wednesdays 6–8 PM. Third-space community.",
+      "description": "BYOB English game night in Charlotte, NC. Wednesdays 6–8 PM. Third-space community.",
       "url": "https://speakeasyclt.com",
       "image": "https://speakeasyclt.com/og-charlotte.jpg",
       "telephone": "+1-803-881-6626",
       "email": "speak.easy.columbia@gmail.com",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "2600 Central Avenue, Suite G",
         "addressLocality": "Charlotte",
         "addressRegion": "NC",
+        "postalCode": "28205",
         "addressCountry": "US"
       },
       "founder": {
@@ -602,7 +629,7 @@
       "@id": "https://speakeasyclt.com/#website",
       "url": "https://speakeasyclt.com",
       "name": "Speak Easy Charlotte",
-      "description": "Happy-hour English program at rotating Charlotte, NC bars. Wednesdays 6–8 PM. Third-space community.",
+      "description": "BYOB English game night in Charlotte, NC. Wednesdays 6–8 PM. Third-space community.",
       "publisher": {
         "@id": "https://languagespeakeasy.com/#nicolebishop"
       }
@@ -634,7 +661,7 @@
       <button class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">🇫🇷 FR</button>
     </div>
       <div id="se-gt" title="Translate this page"></div>
-    <span class="nav-badge" data-i18n="nav_badge">Happy Hour</span>
+    <span class="nav-badge" data-i18n="nav_badge">BYOB</span>
     <ul class="nav-links">
       <li><a href="#tonight" data-i18n="nav_tonight">Tonight</a></li>
       <li><a href="#games" data-i18n="nav_games">Games</a></li>
@@ -647,21 +674,27 @@
   </div>
 </nav>
 
+<!-- HERO BANNER -->
+<div class="hero-banner">
+  <img src="brand/hero-banner.jpg?v=3" width="2400" height="1036" fetchpriority="high"
+       alt="Speak Easy Charlotte — English classes, American accent training, game night and conversation"/>
+</div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow" data-i18n="hero_eyebrow">Charlotte, NC · ESL Happy Hour · Every Week</div>
-    <div style="display:inline-block;background:#FEF200;color:#1A1A1A;border:2px solid #1A1A1A;box-shadow:3px 3px 0 #1A1A1A;font-weight:800;font-size:0.72rem;letter-spacing:2.5px;text-transform:uppercase;padding:0.45rem 1rem;margin:0.9rem 0 0.6rem;">★ Season One · Opens October 2026 ★</div>
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">Charlotte, NC · BYOB Speakeasy · Every Week</div>
+    <div style="display:inline-block;background:#FEF200;color:#1A1A1A;border:2px solid #1A1A1A;box-shadow:3px 3px 0 #1A1A1A;font-weight:800;font-size:0.72rem;letter-spacing:2.5px;text-transform:uppercase;padding:0.45rem 1rem;margin:0.9rem 0 0.6rem;">★ Opens December 1, 2026 ★</div>
     <h1 class="hero-title">
       <span class="gold" data-i18n="hero_title_1">English.</span><br/>
-      <span data-i18n="hero_title_2">Drinks.</span><br/>
+      <span data-i18n="hero_title_2">BYOB.</span><br/>
       <span class="red" data-i18n="hero_title_3">Game Night.</span>
     </div>
     <div class="hero-divider glow-line"></div>
-    <div class="hero-sub" data-i18n="hero_sub">ESL &amp; American Accent Training · Happy Hour Edition</div>
-    <p class="hero-desc" data-i18n="hero_desc">One night a week at two of Charlotte's best bars. Game money. Conversation games. Pictionary. Acting games. Real English — over drinks.</p>
+    <div class="hero-sub" data-i18n="hero_sub">ESL &amp; American Accent Training · Bring Your Own</div>
+    <p class="hero-desc" data-i18n="hero_desc">One night a week at Central City Comics in Plaza Midwood. Play money. Conversation games. Pictionary. Acting games. Real English. Bring what you want to drink.</p>
     <div class="hero-btns">
       <a href="#tonight" class="btn-gold" data-i18n="hero_btn_tonight">See Tonight's Lineup</a>
       <a href="#pricing" class="btn-outline-gold" data-i18n="hero_btn_pricing">View Pricing</a>
@@ -676,10 +709,43 @@
 
 <!-- TICKER -->
 <div class="ticker" data-i18n="ticker">
-  Wednesdays · 6–8pm <span>•</span> Charlotte, NC <span>•</span> Games every night <span>•</span> Conversation games <span>•</span> Pictionary <span>•</span> Speak Easy Dollars <span>•</span> All levels welcome <span>•</span> No homework. Ever.
+  Wednesdays · 6–8pm <span>•</span> Charlotte, NC <span>•</span> BYOB <span>•</span> Conversation games <span>•</span> Pictionary <span>•</span> Speak Easy Dollars (play money) <span>•</span> All levels welcome <span>•</span> No homework. Ever.
 </div>
 
 <!-- TONIGHT'S STRUCTURE -->
+<!-- ═════════ WHAT THIS IS ═════════ -->
+<section class="explainer" id="what">
+  <div class="ex-inner">
+    <div class="ex-eyebrow" data-i18n="ex_eyebrow">Start here · what is Speak Easy Charlotte?</div>
+    <h2 data-i18n="ex_h2">English practice that feels like a night out</h2>
+    <p class="ex-lead" data-i18n="ex_lead">Speak Easy Charlotte is a weekly English conversation night at Central City Comics in Plaza Midwood. For two hours you play games — in English — with other people who are also learning. It's BYOB, a true speakeasy: we don't sell anything, so bring whatever you want to drink, or bring nothing. There are no textbooks, no tests, no homework, and nobody standing at a whiteboard.</p>
+
+    <div class="ex-cols">
+      <div class="ex-col">
+        <h3 data-i18n="ex_c1_h">Who it's for</h3>
+        <p data-i18n="ex_c1_p">Adults who already know some English and want to actually speak it without freezing up. Every level is welcome — there is no placement test and no level too low. If you can introduce yourself, you can play.</p>
+      </div>
+      <div class="ex-col">
+        <h3 data-i18n="ex_c2_h">How the money works</h3>
+        <p data-i18n="ex_c2_p">You earn <strong>Speak Easy Dollars</strong> — play money, printed game currency, not real cash — for speaking up, catching a mistake, taking the hot seat, or teaching the room a word from your language. You spend it to buy into bigger rounds. Biggest bank wins the night.</p>
+      </div>
+      <div class="ex-col">
+        <h3 data-i18n="ex_c3_h">Why games</h3>
+        <p data-i18n="ex_c3_p">Most people who studied English for years still freeze when they have to speak. They have the words; what they lack is hours of practice out loud. Keeping score makes speaking the point instead of the scary part — and nobody gets corrected in front of the group.</p>
+      </div>
+    </div>
+
+    <div class="ex-facts">
+      <span data-i18n="ex_f1"><strong>Wednesdays</strong> · 6–8 PM</span>
+      <span data-i18n="ex_f2"><strong>2600 Central Ave, Suite G</strong> · Charlotte, NC 28205</span>
+      <span data-i18n="ex_f3"><strong>BYOB</strong> · we sell nothing</span>
+      <span data-i18n="ex_f4"><strong>$5</strong> first visit, <strong>$10</strong> after</span>
+      <span data-i18n="ex_f5"><strong>All levels</strong> · no placement test</span>
+      <span data-i18n="ex_f6"><strong>Drop in</strong> · no contract, no semester</span>
+    </div>
+  </div>
+</section>
+
 <section class="tonight" id="tonight">
   <div class="section-inner">
     <div class="section-tag" data-i18n="tonight_tag">The Lineup</div>
@@ -728,7 +794,7 @@
         <div class="tl-content">
           <span class="tl-tag" data-i18n="tl5_tag">Open Time</span>
           <h3 data-i18n="tl5_h">Games Open — Social Time</h3>
-          <p data-i18n="tl5_p">More games running. Game money flying. No script. The room runs itself. This is when the real conversations happen — over drinks, with people you actually want to talk to.</p>
+          <p data-i18n="tl5_p">More games running. Play money flying. No script. The room runs itself. This is when the real conversations happen — with people you actually want to talk to.</p>
         </div>
       </div>
       <div class="tl-item">
@@ -768,7 +834,7 @@
       <div class="game-card" data-label="Instruction">
         <span class="game-icon">🃏</span>
         <h3 data-i18n="game2_h">Chance Card Draw</h3>
-        <p data-i18n="game2_p">Could be: do an American accent for 10 minutes, teach the group a word from your language, order your next drink in English only, or survive the Hot Seat.</p>
+        <p data-i18n="game2_p">Could be: do an American accent for 10 minutes, teach the group a word from your language, run the next 10 minutes in English only, or survive the Hot Seat.</p>
         <span class="game-earn" data-i18n="game2_earn">💵 +$100 to +$300</span>
       </div>
       <div class="game-card" data-label="Team">
@@ -798,7 +864,7 @@
       <div class="game-card" data-label="Free">
         <span class="game-icon">🅿️</span>
         <h3 data-i18n="game7_h">Order in English</h3>
-        <p data-i18n="game7_p">Order your drink at the bar in English — without pointing, switching languages, or using your phone. Do it clean and collect $200. Runs all night, every visit.</p>
+        <p data-i18n="game7_p">Offer someone a drink or a snack in English — without pointing, switching languages, or using your phone. Do it clean and collect $200. Runs all night, every visit.</p>
         <span class="game-earn" data-i18n="game7_earn">💵 +$200 per order</span>
       </div>
       <div class="game-card" data-label="Finals">
@@ -848,7 +914,7 @@
   <div class="section-inner">
     <div class="teacher-card">
       <p class="tc-eyebrow" data-i18n="tc_eyebrow">Meet your teacher</p>
-      <h3 class="tc-h" data-i18n="tc_h">Three decades of teaching. Now at the bar.</h3>
+      <h3 class="tc-h" data-i18n="tc_h">Three decades of teaching. Now in Plaza Midwood.</h3>
       <p class="tc-line" data-i18n="tc_l1"><strong>PhD</strong>Comparative Literature — University of Michigan</p>
       <p class="tc-line" data-i18n="tc_l2"><strong>MA</strong>Comparative Literature, with Graduate Certificate in Women's Studies</p>
       <p class="tc-line" data-i18n="tc_l3"><strong>BA</strong>English &amp; French — Amherst College</p>
@@ -862,7 +928,7 @@
   <div class="section-inner">
     <div class="section-tag" data-i18n="econ_tag">Game Money</div>
     <h2 data-i18n="econ_h2">Speak Easy Dollars</h2>
-    <p class="subtitle" data-i18n="econ_subtitle">Real Speak Easy Dollars circulates every night. You earn it, spend it, bet it, and try to walk out with more than you came in with.</p>
+    <p class="subtitle" data-i18n="econ_subtitle">Speak Easy Dollars are play money — printed game currency, not real cash. You earn it, spend it, bet it, and try to walk out with more than you came in with.</p>
     <div style="margin-bottom:2rem;">
       <span class="money-bill">💵 &nbsp; SPEAK EASY DOLLARS</span>
     </div>
@@ -874,7 +940,7 @@
         <div class="economy-item"><span class="economy-item-icon">🏆</span><p data-i18n="earn3"><strong>Win a game</strong> — Pictionary, word chains, Hot Seat — winners collect.</p></div>
         <div class="economy-item"><span class="economy-item-icon">👂</span><p data-i18n="earn4"><strong>Catch a pronunciation mistake</strong> — someone says a covered word wrong, you collect $100.</p></div>
         <div class="economy-item"><span class="economy-item-icon">🎓</span><p data-i18n="earn5"><strong>Teach something</strong> — explain a word to another student? That earns double.</p></div>
-        <div class="economy-item"><span class="economy-item-icon">🍹</span><p data-i18n="earn6"><strong>Order in English at the bar</strong> — no pointing. Collect $200 every time.</p></div>
+        <div class="economy-item"><span class="economy-item-icon">🥤</span><p data-i18n="earn6"><strong>Offer someone a drink in English</strong> — no pointing. Collect $200 every time.</p></div>
       </div>
       <div class="economy-col">
         <div class="economy-col-title" data-i18n="spend_title">🎲 How You Spend</div>
@@ -899,18 +965,18 @@
       <div class="venue-card">
         <div class="venue-top">
           <div class="v-label" data-i18n="venue1_label">Wednesday Night</div>
-          <div class="v-name" data-i18n="venue1_name">Venue One</div>
+          <div class="v-name" data-i18n="venue1_name">Central City Comics</div>
         </div>
         <div class="venue-body">
-          <span class="venue-icon">🍺</span>
+          <span class="venue-icon">🎲</span>
           <div class="venue-day" data-i18n="venue1_day">Every Wednesday</div>
           <div class="venue-time">6:00 – 8:00 PM</div>
-          <div class="venue-neighborhood" data-i18n="venue1_loc">Charlotte, NC · Location TBA</div>
+          <div class="venue-neighborhood" data-i18n="venue1_loc">2600 Central Ave, Suite G · Charlotte, NC 28205</div>
         </div>
       </div>
     </div>
     <div class="rotation-note">
-      <p data-i18n="venues_note">The Wednesday venue is being finalized now. <strong>Join the list</strong> and you'll get the address before the first night.</p>
+      <p data-i18n="venues_note">Every Wednesday at <strong>2600 Central Avenue, Suite G</strong> — inside Central City Comics, Plaza Midwood. <strong>BYOB</strong>: bring whatever you want to drink.</p>
     </div>
   </div>
 </section>
@@ -927,8 +993,8 @@
     <div class="deed-row">
       <div class="deed-card dc-1">
         <div class="deed-color-bar">🚪</div>
-        <div class="deed-title-section"><div class="deed-title" data-i18n="deed1_label">First Visit</div><div class="deed-name" data-i18n="deed1_name">First Night</div></div>
-        <div class="deed-price-section"><div class="deed-price">FREE</div></div>
+        <div class="deed-title-section"><div class="deed-title" data-i18n="deed1_label">First Visit</div><div class="deed-name" data-i18n="deed1_name">Try It Once</div></div>
+        <div class="deed-price-section"><div class="deed-price">$5</div></div>
         <div class="deed-desc" data-i18n="deed1_desc">Try it out. No commitment.</div>
       </div>
       <div class="deed-card dc-2">
@@ -962,8 +1028,8 @@
         <p data-i18n="faq1_a">No. Complete beginners are welcome. The games are designed so even very limited English is enough to participate. You're always in the game.</p>
       </div>
       <div class="faq-card">
-        <h3 data-i18n="faq2_q">Do I have to drink?</h3>
-        <p data-i18n="faq2_a">Show your Speak Easy pass at the bar and get a discount on drinks for the night. Details vary by venue — but you always pay less than the regular price.</p>
+        <h3 data-i18n="faq2_q">Is there alcohol?</h3>
+        <p data-i18n="faq2_a">It's BYOB — a true speakeasy. We don't sell anything. Bring whatever you want to drink, or bring nothing at all. Plenty of people come with coffee or a soda. Nobody is counting.</p>
       </div>
       <div class="faq-card">
         <h3 data-i18n="faq3_q">Is it structured or is it a hang?</h3>
@@ -975,7 +1041,7 @@
       </div>
       <div class="faq-card">
         <h3 data-i18n="faq5_q">How is this different from Speak Easy Columbia?</h3>
-        <p data-i18n="faq5_a">Columbia is a classroom with game energy — more structured, deeper instruction. Charlotte is a bar with classroom bones — looser, social, still real learning. Same idea. Different vibe.</p>
+        <p data-i18n="faq5_a">Columbia is a classroom with game energy — more structured, deeper instruction, and completely alcohol-free. Charlotte is our own room, BYOB, looser and more social — still real learning. Same idea. Different vibe.</p>
       </div>
       <div class="faq-card">
         <h3 data-i18n="faq6_q">What is Regular Status?</h3>
@@ -992,7 +1058,7 @@
   <div class="go-section">
     <div class="go-corner-label" data-i18n="cta_label">▶ &nbsp; COLLECT $200 AT THE DOOR &nbsp; ◀</div>
     <h2 data-i18n="cta_h2">GO!<span data-i18n="cta_h2_sub">Your first night is waiting</span></h2>
-    <p data-i18n="cta_p">Sign up, get the venue location, and walk in. Your first Wednesday is free. All levels welcome. No experience needed. Just come.</p>
+    <p data-i18n="cta_p">Sign up, get the details, and walk in. Your first Wednesday is $5. All levels welcome. No experience needed. Just come.</p>
     <div class="go-contact">
       <div class="go-contact-item">
         <span>📞</span>
@@ -1033,7 +1099,7 @@
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <p>Charlotte, NC &nbsp;·&nbsp; <a href="tel:8038816626">803.881.6626</a> &nbsp;·&nbsp; <a href="mailto:speak.easy.columbia@gmail.com">speak.easy.columbia@gmail.com</a></p>
-  <p style="margin-top:0.4rem;font-size:0.75rem;" data-i18n="footer_also">Also in Columbia, SC — <a href="index.html">speakeasycolumbia.com</a></p>
+  <p style="margin-top:0.4rem;font-size:0.75rem;" data-i18n="footer_also">Also in Columbia, SC — <a href="https://speakeasycolumbia.com">speakeasycolumbia.com</a></p>
   <p style="margin-top:0.5rem;font-size:0.75rem;" data-i18n="footer_copy">© 2026 Speak Easy. All rights reserved.</p>
   <div style="margin-top:0.5rem;"><span class="visit-counter">VISITS · <span id="vc">…</span></span></div>
 </footer>
@@ -1043,8 +1109,23 @@
 <script>
 const translations = {
   en: {
+    ex_eyebrow: "Start here · what is Speak Easy Charlotte?",
+    ex_h2: "English practice that feels like a night out",
+    ex_lead: "Speak Easy Charlotte is a weekly English conversation night at Central City Comics in Plaza Midwood. For two hours you play games — in English — with other people who are also learning. It's BYOB, a true speakeasy: we don't sell anything, so bring whatever you want to drink, or bring nothing. There are no textbooks, no tests, no homework, and nobody standing at a whiteboard.",
+    ex_c1_h: "Who it's for",
+    ex_c1_p: "Adults who already know some English and want to actually speak it without freezing up. Every level is welcome — there is no placement test and no level too low. If you can introduce yourself, you can play.",
+    ex_c2_h: "How the money works",
+    ex_c2_p: "You earn <strong>Speak Easy Dollars</strong> — play money, printed game currency, not real cash — for speaking up, catching a mistake, taking the hot seat, or teaching the room a word from your language. You spend it to buy into bigger rounds. Biggest bank wins the night.",
+    ex_c3_h: "Why games",
+    ex_c3_p: "Most people who studied English for years still freeze when they have to speak. They have the words; what they lack is hours of practice out loud. Keeping score makes speaking the point instead of the scary part — and nobody gets corrected in front of the group.",
+    ex_f1: "<strong>Wednesdays</strong> · 6–8 PM",
+    ex_f2: "<strong>2600 Central Ave, Suite G</strong> · Charlotte, NC 28205",
+    ex_f3: "<strong>BYOB</strong> · we sell nothing",
+    ex_f4: "<strong>$5</strong> first visit, <strong>$10</strong> after",
+    ex_f5: "<strong>All levels</strong> · no placement test",
+    ex_f6: "<strong>Drop in</strong> · no contract, no semester",
     sibling_note: "Prefer alcohol-free? → <a href=\"https://speakeasycolumbia.com\" target=\"_blank\" rel=\"noopener\">Speak Easy Columbia</a>",
-    nav_badge: "Happy Hour",
+    nav_badge: "BYOB",
     nav_tonight: "Tonight",
     nav_games: "Games",
     nav_learn: "Learn",
@@ -1052,15 +1133,15 @@ const translations = {
     nav_pricing: "Pricing",
     nav_pitch: "Pitch",
     nav_joinnow: "Join Now",
-    hero_eyebrow: "Charlotte, NC · ESL Happy Hour · Every Week",
+    hero_eyebrow: "Charlotte, NC · BYOB Speakeasy · Every Week",
     hero_title_1: "English.",
-    hero_title_2: "Drinks.",
+    hero_title_2: "BYOB.",
     hero_title_3: "Game Night.",
     hero_sub: "Better than sitting home · Wednesdays in Charlotte",
-    hero_desc: "A rotating circuit of Charlotte's best bars. Conversation games, real English over real drinks. Anything is better than another night on the couch.",
+    hero_desc: "Central City Comics in Plaza Midwood, every Wednesday. Conversation games, real English, bring your own drink. Anything is better than another night on the couch.",
     hero_btn_tonight: "See Tonight's Lineup",
     hero_btn_pricing: "View Pricing",
-    ticker: 'Wednesdays · 6–8pm <span>•</span> Charlotte, NC <span>•</span> Games every night <span>•</span> Conversation games <span>•</span> Pictionary <span>•</span> Speak Easy Dollars <span>•</span> All levels welcome <span>•</span> No homework. Ever.',
+    ticker: 'Wednesdays · 6–8pm <span>•</span> Charlotte, NC <span>•</span> BYOB <span>•</span> Conversation games <span>•</span> Pictionary <span>•</span> Speak Easy Dollars (play money) <span>•</span> All levels welcome <span>•</span> No homework. Ever.',
     tonight_tag: "The Lineup",
     tonight_h2: "What a Night Looks Like",
     tonight_subtitle: "Two hours. Structured enough to learn. Loose enough to feel like a party.",
@@ -1078,7 +1159,7 @@ const translations = {
     tl4_p: "Teams of 3–4. Draw tonight's words — your team guesses. Bet your dollars on correct answers. Loudest round of the night.",
     tl5_tag: "Open Time",
     tl5_h: "Games Open — Social Time",
-    tl5_p: "More games running. Game money flying. No script. The room runs itself. This is when the real conversations happen — over drinks, with people you actually want to talk to.",
+    tl5_p: "More games running. Play money flying. No script. The room runs itself. This is when the real conversations happen — with people you actually want to talk to.",
     tl6_tag: "Finale",
     tl6_h: "Final Showdown + Big Payout",
     tl6_p: "Top two earners face off. The room picks the challenge — debate, story with 5 random words, accent showdown. Big pot goes to the winner of one last open game. Go collect your winnings.",
@@ -1091,7 +1172,7 @@ const translations = {
     game1_p: "At the top of every night — talk to 3 people before the first bell using only English. No pointing, no switching languages. Opens the room up in 15 minutes flat.",
     game1_earn: "💵 +$50 per conversation",
     game2_h: "Chance Card Draw",
-    game2_p: "Could be: do an American accent for 10 minutes, teach the group a word from your language, order your next drink in English only, or survive the Hot Seat.",
+    game2_p: "Could be: do an American accent for 10 minutes, teach the group a word from your language, run the next 10 minutes in English only, or survive the Hot Seat.",
     game2_earn: "💵 +$100 to +$300",
     game3_h: "Big Pot Challenge",
     game3_p: "A challenge goes to the whole room. First person to complete it wins the pot. Example: make 3 different people genuinely laugh in English before the next round.",
@@ -1106,7 +1187,7 @@ const translations = {
     game6_p: "Any word from tonight's list gets mispronounced — the person who catches it collects $100. Makes the whole room the teacher.",
     game6_earn: "💵 +$100 per catch",
     game7_h: "Order in English",
-    game7_p: "Order your drink at the bar in English — without pointing, switching languages, or using your phone. Do it clean and collect $200. Runs all night, every visit.",
+    game7_p: "Offer someone a drink or a snack in English — without pointing, switching languages, or using your phone. Do it clean and collect $200. Runs all night, every visit.",
     game7_earn: "💵 +$200 per order",
     game8_h: "Final Showdown",
     game8_p: "End of night. Top two earners face off. The crowd picks the challenge — debate, story with 5 random words, or accent showdown.",
@@ -1124,21 +1205,21 @@ const translations = {
     inst3_p: "Teams draw tonight's words. Teammates guess. Dollars wagered on correct answers. Skits and role-play rounds rotate in — restaurant, job interview, first day of work.",
     inst3_detail: "Drawing a word makes you think about what it means, not just how it sounds. Playing a character means the mistake belongs to the character — not to you.",
     tc_eyebrow: "Meet your teacher",
-    tc_h: "Three decades of teaching. Now at the bar.",
+    tc_h: "Three decades of teaching. Now in Plaza Midwood.",
     tc_l1: "<strong>PhD</strong>Comparative Literature — University of Michigan",
     tc_l2: "<strong>MA</strong>Comparative Literature, with Graduate Certificate in Women's Studies",
     tc_l3: "<strong>BA</strong>English &amp; French — Amherst College",
     tc_since: "Educator since 1996",
     econ_tag: "Game Money",
     econ_h2: "Speak Easy Dollars",
-    econ_subtitle: "Real Speak Easy Dollars circulates every night. You earn it, spend it, bet it, and try to walk out with more than you came in with.",
+    econ_subtitle: "Speak Easy Dollars are play money — printed game currency, not real cash. You earn it, spend it, bet it, and try to walk out with more than you came in with.",
     earn_title: "💰 How You Earn",
     earn1: "<strong>Show up</strong> — attendance pays. Walk in, collect your opening stack.",
     earn2: "<strong>Speak unprompted</strong> — volunteer an answer, earn a bonus.",
     earn3: "<strong>Win a game</strong> — Pictionary, word chains, Hot Seat — winners collect.",
     earn4: "<strong>Catch a pronunciation mistake</strong> — someone says a covered word wrong, you collect $100.",
     earn5: "<strong>Teach something</strong> — explain a word to another student? That earns double.",
-    earn6: "<strong>Order in English at the bar</strong> — no pointing. Collect $200 every time.",
+    earn6: "<strong>Offer someone a drink in English</strong> — no pointing. Collect $200 every time.",
     spend_title: "🎲 How You Spend",
     spend1: "<strong>Buy back in</strong> — made a mistake mid-game? Pay to try again instead of sitting out.",
     spend2: "<strong>Jump into the group</strong> — pay a dollar to swap into the group chat game circle.",
@@ -1150,17 +1231,17 @@ const translations = {
     venues_h2: "Same night. Same room. Never the same game.",
     venues_subtitle: "Wednesday nights in Charlotte. One room, one standing table, every week.",
     venue1_label: "Wednesday Night",
-    venue1_name: "Venue One",
+    venue1_name: "Central City Comics",
     venue1_day: "Every Wednesday",
-    venue1_loc: "Charlotte, NC · Location TBA",
-    venues_note: 'Venues rotate every <strong>3 months</strong> — keeping it fresh for everyone. Follow us on social to catch the next announcement when we move.',
+    venue1_loc: "2600 Central Ave, Suite G · Charlotte, NC 28205",
+    venues_note: 'Every Wednesday at <strong>2600 Central Avenue, Suite G</strong> — inside Central City Comics, Plaza Midwood. <strong>BYOB</strong>: bring whatever you want to drink.',
     pricing_tag: "Pricing",
     pricing_h2: "Collect your deed",
     pricing_subtitle: "Month-to-month. Show up wherever we're playing.",
     pricing_badge: "",
     deed1_label: "First Visit",
-    deed1_name: "First Night",
-    deed1_desc: "Free. Show up, see if it's your thing.",
+    deed1_name: "Try It Once",
+    deed1_desc: "$5. Show up, see if it's your thing.",
     deed2_label: "Single Night",
     deed2_name: "Drop-In",
     deed2_desc: "Any Wednesday. Pay at the door.",
@@ -1171,33 +1252,48 @@ const translations = {
     deed4_label: "90 Days",
     deed4_name: "3-Month Course",
     deed4_desc: "Best value. Three full months.",
-    pricing_note: "Free first night = walk in, no card needed · Drop-in = pay $10 at the door · Month pass = every Wednesday that month",
+    pricing_note: "First visit = $5 at the door · Drop-in = $10 at the door · Month pass = every Wednesday that month",
     faq_tag: "FAQ",
     faq_h2: "Questions? We have answers.",
     faq1_q: "Do I need to speak English to join?",
     faq1_a: "No. Complete beginners are welcome. The games are designed so even very limited English is enough to participate. You're always in the game.",
-    faq2_q: "Do I have to drink?",
-    faq2_a: "Show your Speak Easy pass at the bar and get a discount on drinks for the night. Details vary by venue — but you always pay less than the regular price.",
+    faq2_q: "Is there alcohol?",
+    faq2_a: "It's BYOB — a true speakeasy. We don't sell anything. Bring whatever you want to drink, or bring nothing at all. Plenty of people come with coffee or a soda. Nobody is counting.",
     faq3_q: "Is it structured or is it a hang?",
     faq3_a: "Both. The first 90 minutes follow a schedule — words, group chat game, Pictionary, games. Then it opens up. You leave knowing something you didn't know when you walked in.",
     faq4_q: "Can I come to both venues in one week?",
     faq4_a: "Yes — with a Month Pass or higher. Drop-ins are for one night. Month pass = unlimited nights at both venues.",
     faq5_q: "How is this different from Speak Easy Columbia?",
-    faq5_a: "Columbia is a classroom with game energy — more structured, deeper instruction. Charlotte is a bar with classroom bones — looser, social, still real learning. Same idea. Different vibe.",
+    faq5_a: "Columbia is a classroom with game energy — more structured, deeper instruction, and completely alcohol-free. Charlotte is our own room, BYOB, looser and more social — still real learning. Same idea. Different vibe.",
     faq6_q: "What is Regular Status?",
     faq6_a: "Come to 3+ sessions and you earn Regular Status — bonus challenges each night and the right to challenge anyone to a Final Showdown duel. The more you show up, the more power you get.",
     cta_label: "▶   COLLECT $200 AT THE DOOR   ◀",
     cta_h2: "GO!",
     cta_h2_sub: "Your first night is waiting",
-    cta_p: "Wednesday night, one bar, walk in. First time's free. All levels welcome — anything is better than another night on the couch.",
+    cta_p: "Wednesday night, one room, walk in. First time is $5. All levels welcome — anything is better than another night on the couch.",
     cta_btn: "📅   Book a Call",
     footer_tonight: "Tonight's Structure",
-    footer_also: 'Also in Columbia, SC — <a href="index.html">speakeasycolumbia.com</a>',
+    footer_also: 'Also in Columbia, SC — <a href="https://speakeasycolumbia.com">speakeasycolumbia.com</a>',
     footer_copy: "© 2026 Speak Easy. All rights reserved."
   },
   es: {
+    ex_eyebrow: "Empieza aquí · ¿qué es Speak Easy Charlotte?",
+    ex_h2: "Practicar inglés como una salida nocturna",
+    ex_lead: "Speak Easy Charlotte es una noche semanal de conversación en inglés en nuestra propia sala en Plaza Midwood. Durante dos horas juegas — en inglés — con otras personas que también están aprendiendo. Es BYOB, un speakeasy de verdad: no vendemos nada, así que trae lo que quieras tomar, o no traigas nada. No hay libros de texto, ni exámenes, ni tareas, ni nadie parado frente a una pizarra.",
+    ex_c1_h: "Para quién es",
+    ex_c1_p: "Adultos que ya saben algo de inglés y quieren hablarlo de verdad sin congelarse. Todos los niveles son bienvenidos — no hay examen de nivel y ningún nivel es demasiado bajo. Si puedes presentarte, puedes jugar.",
+    ex_c2_h: "Cómo funciona el dinero",
+    ex_c2_p: "Ganas <strong>Speak Easy Dollars</strong> — dinero de juego, billetes impresos, no dinero real — por hablar, por detectar un error, por sentarte en la silla caliente o por enseñarle al grupo una palabra de tu idioma. Lo gastas para entrar en rondas más grandes. El banco más grande gana la noche.",
+    ex_c3_h: "Por qué juegos",
+    ex_c3_p: "La mayoría de las personas que estudiaron inglés por años todavía se congelan al hablar. Tienen las palabras; lo que les falta son horas de práctica en voz alta. Llevar la cuenta convierte el hablar en el objetivo en vez de la parte que da miedo — y nadie te corrige frente al grupo.",
+    ex_f1: "<strong>Miércoles</strong> · 6–8 PM",
+    ex_f2: "<strong>2600 Central Ave, Suite G</strong> · Charlotte, NC 28205",
+    ex_f3: "<strong>BYOB</strong> · no vendemos nada",
+    ex_f4: "<strong>$5</strong> primera visita, <strong>$10</strong> después",
+    ex_f5: "<strong>Todos los niveles</strong> · sin examen",
+    ex_f6: "<strong>Entrada libre</strong> · sin contrato ni semestre",
     sibling_note: "¿Prefieres sin alcohol? → <a href=\"https://speakeasycolumbia.com\" target=\"_blank\" rel=\"noopener\">Speak Easy Columbia</a>",
-    nav_badge: "Happy Hour",
+    nav_badge: "BYOB",
     nav_tonight: "Esta Noche",
     nav_games: "Juegos",
     nav_learn: "Aprender",
@@ -1205,7 +1301,7 @@ const translations = {
     nav_pricing: "Precios",
     nav_pitch: "Propuesta",
     nav_joinnow: "Únete",
-    hero_eyebrow: "Charlotte, NC · ESL Happy Hour · Cada Semana",
+    hero_eyebrow: "Charlotte, NC · Speakeasy BYOB · Cada Semana",
     hero_title_1: "Inglés.",
     hero_title_2: "Bebidas.",
     hero_title_3: "Noche de Juegos.",
@@ -1303,10 +1399,10 @@ const translations = {
     venues_h2: "La misma noche. El mismo lugar. Nunca el mismo juego.",
     venues_subtitle: "Miércoles por la noche en Charlotte. Un lugar, una mesa fija, cada semana.",
     venue1_label: "Noche del Miércoles",
-    venue1_name: "Local Uno",
+    venue1_name: "Central City Comics",
     venue1_day: "Cada Miércoles",
-    venue1_loc: "Charlotte, NC · Ubicación por anunciar",
-    venues_note: 'Los locales rotan cada <strong>3 meses</strong> — manteniéndolo fresco para todos. Síguenos en redes para el próximo anuncio cuando nos movamos.',
+    venue1_loc: "2600 Central Ave, Suite G · Charlotte, NC 28205",
+    venues_note: 'Un solo lugar, todos los miércoles. <strong>Trae tu propia bebida</strong> — lo que tú quieras. <strong>Únete a la lista</strong> y te enviamos los detalles antes de la primera noche.',
     pricing_tag: "Precios",
     pricing_h2: "Reclama tu título",
     pricing_subtitle: "Mes a mes. Especiales de bebidas en cada lugar. Aparece donde sea que estemos jugando.",
@@ -1324,7 +1420,7 @@ const translations = {
     deed4_label: "90 Días",
     deed4_name: "Curso de 3 Meses",
     deed4_desc: "El mejor valor. Tres meses completos. Ambos locales. Descuento cada noche.",
-    pricing_note: "Primera noche gratis = entras, no necesitas tarjeta · Drop-in = pagas $10 en la puerta · Pase mensual = ilimitado en todas partes · <strong>Especiales de bebidas en cada lugar</strong>",
+    pricing_note: "Primera visita = $5 en la puerta · Drop-in = $10 en la puerta · Pase mensual = todos los miércoles del mes",
     faq_tag: "Preguntas Frecuentes",
     faq_h2: "¿Preguntas? Tenemos respuestas.",
     faq1_q: "¿Necesito hablar inglés para unirme?",
@@ -1345,7 +1441,7 @@ const translations = {
     cta_p: "Elige una noche, elige un bar, entra. La primera vez es gratis. Los especiales de bebidas empiezan en cuanto te sientas. Todos los niveles bienvenidos — cualquier cosa es mejor que otra noche en el sofá.",
     cta_btn: "📅   Agenda una Llamada",
     footer_tonight: "Programa de Esta Noche",
-    footer_also: 'También en Columbia, SC — <a href="index.html">speakeasycolumbia.com</a>',
+    footer_also: 'También en Columbia, SC — <a href="https://speakeasycolumbia.com">speakeasycolumbia.com</a>',
     footer_copy: "© 2026 Speak Easy. Todos los derechos reservados."
   },
   hi: {
@@ -1452,14 +1548,14 @@ const translations = {
     spend4: "<strong>संकेत खरीदें</strong> — किसी शब्द पर अटक गए? हार मानने की बजाय संकेत के लिए पैसे दें।",
     spend5: "<strong>बारी छोड़ें</strong> — तैयार नहीं? एक डॉलर खर्च करके पास करें। कोई शर्म नहीं, कोई स्पष्टीकरण नहीं।",
     spend6: "<strong>अंतिम मुकाबले में प्रवेश करें</strong> — रात के अंत में प्रतिस्पर्धा करने के लिए आगे बढ़ें।",
-    venues_tag: "दो बार · दो रातें",
-    venues_h2: "हम चलते हैं। हम कभी नहीं बोर होते।",
+    venues_tag: "एक रात · एक कमरा",
+    venues_h2: "वही रात। वही कमरा। खेल हमेशा नया।",
     venues_subtitle: "दो स्थान। हफ्ते में दो रातें। हर तीन महीने में हम नई जगह जाते हैं — ताकि हमेशा ताज़ा रहे।",
     venue1_label: "बुधवार की रात",
     venue1_name: "स्थान एक",
     venue1_day: "हर बुधवार",
-    venue1_loc: "Charlotte, NC · स्थान घोषित होगा",
-    venues_note: 'स्थान हर <strong>3 महीने</strong> बदलते हैं — सबके लिए ताज़ा रहता है। जब हम आगे बढ़ें तो अगली घोषणा के लिए हमें सोशल पर फॉलो करें।',
+    venue1_loc: "2600 Central Ave, Suite G · Charlotte, NC 28205",
+    venues_note: 'एक ही कमरा, हर बुधवार। <strong>अपना पेय खुद लाएँ</strong> — जो चाहें। <strong>लिस्ट में जुड़ें</strong> और पहली रात से पहले हम आपको पूरी जानकारी भेज देंगे।',
     pricing_tag: "कीमत",
     pricing_h2: "अपना डीड कलेक्ट करें",
     pricing_subtitle: "महीने-दर-महीने। हर जगह ड्रिंक स्पेशल। हम जहाँ भी खेल रहे हों, आ जाओ।",
@@ -1477,7 +1573,7 @@ const translations = {
     deed4_label: "90 दिन",
     deed4_name: "3-महीने का कोर्स",
     deed4_desc: "सबसे अच्छा मूल्य। तीन पूरे महीने।",
-    pricing_note: "पहली रात मुफ्त = बस आओ, कार्ड नहीं चाहिए · Drop-in = दरवाज़े पर $10 · Month pass = सब जगह असीमित · <strong>हर जगह ड्रिंक स्पेशल</strong>",
+    pricing_note: "पहली विज़िट = दरवाज़े पर $5 · Drop-in = दरवाज़े पर $10 · Month pass = उस महीने हर बुधवार",
     faq_tag: "अक्सर पूछे जाने वाले सवाल",
     faq_h2: "सवाल? हमारे पास जवाब हैं।",
     faq1_q: "क्या जुड़ने के लिए अंग्रेज़ी बोलनी होगी?",
@@ -1498,7 +1594,7 @@ const translations = {
     cta_p: "एक रात चुनो, एक बार चुनो, आ जाओ। पहली बार मुफ्त। बैठते ही ड्रिंक स्पेशल। सभी स्तर स्वागत है — सोफे पर एक और रात से कुछ भी बेहतर है।",
     cta_btn: "📅   कॉल बुक करें",
     footer_tonight: "आज रात का प्रोग्राम",
-    footer_also: 'Columbia, SC में भी — <a href="index.html">speakeasycolumbia.com</a>',
+    footer_also: 'Columbia, SC में भी — <a href="https://speakeasycolumbia.com">speakeasycolumbia.com</a>',
     footer_copy: "© 2026 Speak Easy. सर्वाधिकार सुरक्षित।"
   },
   zh: {
@@ -1605,14 +1701,14 @@ const translations = {
     spend4: "<strong>买提示</strong>——卡在某个词上？付钱买提示，而不是放弃。",
     spend5: "<strong>跳过一轮</strong>——还没准备好？花一美元跳过。无需尴尬，无需解释。",
     spend6: "<strong>参加最终对决</strong>——预付参加当晚结束时的竞争。",
-    venues_tag: "两家酒吧 · 两个晚上",
-    venues_h2: "我们移动。我们从不无聊。",
+    venues_tag: "一个夜晚 · 一个房间",
+    venues_h2: "同样的夜晚。同样的房间。游戏永远不同。",
     venues_subtitle: "两个地点。每周两晚。每三个月换一个新地方——永远保持新鲜感。",
     venue1_label: "周三之夜",
     venue1_name: "场地一",
     venue1_day: "每周三",
-    venue1_loc: "北卡罗来纳州夏洛特 · 地点待定",
-    venues_note: '场地每 <strong>3 个月</strong>轮换一次——对所有人保持新鲜感。关注我们的社交媒体，获取下次搬家的公告。',
+    venue1_loc: "2600 Central Ave, Suite G · 夏洛特, NC 28205",
+    venues_note: '同一个房间，每周三。<strong>自带饮品</strong>——想喝什么都行。<strong>加入名单</strong>，我们会在第一晚之前把详情发给你。',
     pricing_tag: "价格",
     pricing_h2: "领取你的地契",
     pricing_subtitle: "月度无合约。周三来就行。",
@@ -1630,7 +1726,7 @@ const translations = {
     deed4_label: "90 天",
     deed4_name: "3 个月课程",
     deed4_desc: "最超值。三个完整月。",
-    pricing_note: "首夜免费 = 直接来,不需要卡 · Drop-in = 进门付 $10 · 月卡 = 当月每个周三",
+    pricing_note: "首次到访 = 进门付 $5 · Drop-in = 进门付 $10 · 月卡 = 当月每个周三",
     faq_tag: "常见问题",
     faq_h2: "有问题？我们有答案。",
     faq1_q: "加入需要会说英语吗？",
@@ -1651,12 +1747,12 @@ const translations = {
     cta_p: "周三晚上,一家酒吧,进去就好。第一次免费。所有水平欢迎 — 任何事情都比再窝在沙发上好。",
     cta_btn: "📅   预约通话",
     footer_tonight: "今晚的安排",
-    footer_also: '也在南卡罗来纳州哥伦比亚 — <a href="index.html">speakeasycolumbia.com</a>',
+    footer_also: '也在南卡罗来纳州哥伦比亚 — <a href="https://speakeasycolumbia.com">speakeasycolumbia.com</a>',
     footer_copy: "© 2026 Speak Easy. 保留所有权利。"
   },
   fr: {
     sibling_note: "Vous préférez sans alcool ? → <a href=\"https://speakeasycolumbia.com\" target=\"_blank\" rel=\"noopener\">Speak Easy Columbia</a>",
-    nav_badge: "Happy Hour",
+    nav_badge: "BYOB",
     nav_tonight: "Ce Soir",
     nav_games: "Jeux",
     nav_learn: "Apprendre",
@@ -1664,7 +1760,7 @@ const translations = {
     nav_pricing: "Tarifs",
     nav_pitch: "Présentation",
     nav_joinnow: "Rejoindre",
-    hero_eyebrow: "Charlotte, NC · ESL Happy Hour · Chaque Semaine",
+    hero_eyebrow: "Charlotte, NC · Speakeasy BYOB · Chaque Semaine",
     hero_title_1: "Anglais.",
     hero_title_2: "Boissons.",
     hero_title_3: "Soirée Jeux.",
@@ -1758,14 +1854,14 @@ const translations = {
     spend4: "<strong>Acheter un indice</strong> — bloqué sur un mot ? Paie pour un indice plutôt que d'abandonner.",
     spend5: "<strong>Passer son tour</strong> — pas prêt ? Dépense un dollar pour passer. Pas de honte, pas d'explication.",
     spend6: "<strong>Entrer dans la confrontation finale</strong> — mise pour participer en fin de soirée.",
-    venues_tag: "Deux Bars · Deux Soirs",
-    venues_h2: "On bouge. On ne s'ennuie jamais.",
+    venues_tag: "Un Soir · Une Salle",
+    venues_h2: "Même soir. Même salle. Jamais le même jeu.",
     venues_subtitle: "Deux lieux. Deux soirs par semaine. Tous les trois mois on change de crèmerie — pour que ce soit toujours frais.",
     venue1_label: "Mercredi soir",
     venue1_name: "Lieu Un",
     venue1_day: "Chaque mercredi",
-    venue1_loc: "Charlotte, NC · Lieu à annoncer",
-    venues_note: 'Les lieux changent tous les <strong>3 mois</strong> — pour que tout reste frais. Suis-nous sur les réseaux pour la prochaine annonce quand on déménage.',
+    venue1_loc: "2600 Central Ave, Suite G · Charlotte, NC 28205",
+    venues_note: 'Une seule salle, tous les mercredis. <strong>Apporte ta propre boisson</strong> — ce que tu veux. <strong>Inscris-toi</strong> et on t\'envoie les détails avant la première soirée.',
     pricing_tag: "Tarifs",
     pricing_h2: "Réclame ton titre",
     pricing_subtitle: "Mois après mois. Viens le mercredi, c'est tout.",
@@ -1804,7 +1900,7 @@ const translations = {
     cta_p: "Mercredi soir, un bar, entre. La première fois c'est gratuit. Tous niveaux bienvenus — n'importe quoi vaut mieux qu'une autre soirée sur le canapé.",
     cta_btn: "📅   Réserver un appel",
     footer_tonight: "Le programme du soir",
-    footer_also: 'Aussi à Columbia, SC — <a href="index.html">speakeasycolumbia.com</a>',
+    footer_also: 'Aussi à Columbia, SC — <a href="https://speakeasycolumbia.com">speakeasycolumbia.com</a>',
     footer_copy: "© 2026 Speak Easy. Tous droits réservés."
   }
 };
@@ -1824,7 +1920,12 @@ function setLanguage(lang) {
 }
 
 // Default to Spanish on load
-setLanguage('es');
+// Pick the visitor's language automatically; default to English.
+(function () {
+  var supported = ['en', 'es', 'hi', 'zh', 'fr'];
+  var nav = (navigator.language || navigator.userLanguage || 'en').slice(0, 2).toLowerCase();
+  setLanguage(supported.indexOf(nav) !== -1 ? nav : 'en');
+})();
 </script>
 
 <!-- MONOPOLY TITLE DEED SPLASH -->
@@ -1839,9 +1940,9 @@ setLanguage('es');
       <div class="welcome-line">You have landed on</div>
       <div class="tagline">Better than another night on the couch.</div>
       <div class="meta-rows">
-        <div class="meta-row"><span class="k">NIGHTS</span><span class="v">Wed · Fri</span></div>
+        <div class="meta-row"><span class="k">NIGHTS</span><span class="v">Wednesdays</span></div>
         <div class="meta-row"><span class="k">TIME</span><span class="v">6 – 8 PM</span></div>
-        <div class="meta-row"><span class="k">FIRST</span><span class="v">FREE first night</span></div>
+        <div class="meta-row"><span class="k">FIRST</span><span class="v">$5 first visit</span></div>
       </div>
       <button class="enter-btn" onclick="seEnter()">▸ PASS GO</button>
     </div>

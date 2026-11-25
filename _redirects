@@ -1,0 +1,5 @@
+# Clean URLs — .html stripped
+/games.html        /games             301!
+/games             /games.html        200
+/curriculum.html   /curriculum        301!
+/curriculum        /curriculum.html   200
